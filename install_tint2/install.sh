@@ -25,12 +25,18 @@ for d in /etc/skel/  /home/*/; do
 	d="$d/.config/"; [ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d"
 	d="$d/tint2/";  [ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d"
 	
-	cp -v "$base_dir/"*tint* "$d" && chown $(stat "$(dirname "$d")" -c %u:%g) "$d"/*tint*
+	# Copy all tint2 configs
+	cp -v "$base_dir/"*.tint "$d" && chown $(stat "$(dirname "$d")" -c %u:%g) "$d"/*.tint
 	
 	[ "$laptop" ] && [ ! "$virtualmachine" ] && tint_version="_laptop"
 	
-	# Set taskbar.tint and menu.tint as default tints
+	# Include taskbar.tint in session file
 	echo "$d/taskbar${tint_version}.tint" | tr -s "/" > "$d/tint2-sessionfile"
 	echo "$d/menu.tint" | tr -s "/" >> "$d/tint2-sessionfile"
 	chown $(stat "$(dirname "$d")" -c %u:%g) "$d/tint2-sessionfile"; 
 done
+
+# Copy tint2-session
+f="tint2-session"
+cp -v "$base_dir/$f" /usr/bin
+chmod a+x "/usr/bin/$f"
