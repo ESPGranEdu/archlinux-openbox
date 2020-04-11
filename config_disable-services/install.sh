@@ -12,5 +12,5 @@
 systemctl mask NetworkManager-wait-online.service
 # systemctl status NetworkManager.service &>/dev/null && systemctl networking disable
 systemctl disable wpa_supplicant
-systemctl disable ModemManager.service
-systemctl disable pppd-dns.service
+# systemctl disable ModemManager.service
+# systemctl disable pppd-dns.service
