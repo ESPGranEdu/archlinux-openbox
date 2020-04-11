@@ -15,6 +15,7 @@ pacman -Sy --noconfirm sudo
 user=$(cat /etc/passwd | cut -f 1,3 -d: | grep :1000$ | cut -f1 -d:)
 
 # Uncomment sudo group in sudoers
-sed -i '/sudo/ s/^#//' /etc/sudoers
+sed -i '/\%sudo/ s/^#//' /etc/sudoers
 
+! { getent group | grep -q sudo; } && groupadd sudo
 [ "$user" ] && gpasswd -a "$user" sudo

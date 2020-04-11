@@ -141,6 +141,9 @@ done
 # Remove the temp folder
 rm -rf /home/build
 
+# Delete nobody from sudoers
+sed -i '/nobody/d' /etc/sudoers
+
 if [ ! "$list" ] && [ ! "$actions" ] && ask_action "Reboot" "" "y"; then
 	reboot
 fi
