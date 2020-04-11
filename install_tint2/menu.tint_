@@ -82,7 +82,7 @@ execp_font_color = #FFFFFF 90
 execp_centered = 1
 execp_padding = 20 0 0
 execp_tooltip = 
-execp_lclick_command = x-terminal-emulator 
+execp_lclick_command = terminator
 
 execp = new
 execp_command = echo "Web Browser"
@@ -93,7 +93,7 @@ execp_font_color = #FFFFFF 90
 execp_centered = 1
 execp_padding = 20 0 0
 execp_tooltip = 
-execp_lclick_command = x-www-browser
+execp_lclick_command = brave
 
 execp = new
 execp_command = echo "File Manager"
@@ -104,7 +104,7 @@ execp_font_color = #FFFFFF 90
 execp_centered = 1
 execp_padding = 20 0 0
 execp_tooltip = 
-execp_lclick_command = x-file-manager 
+execp_lclick_command = thunar 
 
 execp = new
 execp_command = echo "Text editor"
@@ -115,7 +115,7 @@ execp_font_color = #FFFFFF 90
 execp_centered = 1
 execp_padding = 20 0 0
 execp_tooltip = 
-execp_lclick_command = x-text-editor
+execp_lclick_command = vscodium
 
 
 execp = new

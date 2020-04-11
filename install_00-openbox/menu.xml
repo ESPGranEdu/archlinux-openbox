@@ -26,28 +26,28 @@
 		<item label="Terminal" icon="/usr/share/icons/openbox-menu/terminal.png">
             <action name="Execute">
                 <command>
-                    x-terminal-emulator
+                    terminator
                 </command>
             </action>
         </item>
         <item label="Web Browser" icon="/usr/share/icons/openbox-menu/web-browser.png">
             <action name="Execute">
                 <command>
-                    x-www-browser
+                    brave
                 </command>
             </action>
         </item>
         <item label="File Manager" icon="/usr/share/icons/openbox-menu/file-manager.png">
             <action name="Execute">
                 <command>
-                    x-file-manager
+                    thunar
                 </command>
             </action>
         </item>
         <item label="Text Editor" icon="/usr/share/icons/openbox-menu/text-editor.png">
             <action name="Execute">
                 <command>
-                    x-text-editor
+                    vscodium
                 </command>
             </action>
         </item>
@@ -76,21 +76,21 @@
                 <item label="Edit rc.xml">
                     <action name="Execute">
                         <command>
-                            x-text-editor ~/.config/openbox/rc.xml
+                            vscodium ~/.config/openbox/rc.xml
                         </command>
                     </action>
                 </item>
                 <item label="Edit menu.xml">
                     <action name="Execute">
                         <command>
-                            x-text-editor ~/.config/openbox/menu.xml
+                            vscodium ~/.config/openbox/menu.xml
                         </command>
                     </action>
                 </item>				
                 <item label="Edit autostart">
                     <action name="Execute">
                         <command>
-                            x-text-editor ~/.config/openbox/autostart
+                            vscodium ~/.config/openbox/autostart
                         </command>
                     </action>
                 </item>
@@ -106,7 +106,7 @@
 	            <item label="Edit Compositor Settings">
         			<action name="Execute">
 	                    <command>
-	                        x-text-editor ~/.config/compton.conf
+	                        vscodium ~/.config/compton.conf
 	                    </command>
 	                </action>
 	            </item>
@@ -136,7 +136,7 @@
 				<item label="Open Your Tints Folder">
         			<action name="Execute">
 	                    <command>
-	                        x-file-manager ~/.config/tint2/
+	                        thunar ~/.config/tint2/
 	                    </command>
 	                </action>
 	            </item>
@@ -159,7 +159,7 @@
         		<item label="Open Your Conkys Folder">
         			<action name="Execute">
 	                    <command>
-	                        x-file-manager ~/.config/conky/
+	                        thunar ~/.config/conky/
 	                    </command>
 	                </action>
 	            </item>
@@ -188,7 +188,7 @@
             <item label="Font Configuration">
                 <action name="Execute">
                     <command>
-                        x-text-editor ~/.config/fontconfig/fonts.conf
+                        vscodium ~/.config/fontconfig/fonts.conf
                     </command>
                 </action>
             </item>
@@ -218,13 +218,6 @@
                 <action name="Execute">
                     <command>
                         synaptic-pkexec
-                    </command>
-                </action>
-            </item>
-            <item label="Alternatives">
-                <action name="Execute">
-                    <command>
-                        galternatives
                     </command>
                 </action>
             </item>
@@ -269,42 +262,42 @@
 			<item label="Memory Usage">
 				<action name="Execute">
 					<command>
-						x-terminal-emulator -m -e sudo bash -c "ps_mem.py; read"
+						termite -m -e sudo bash -c "ps_mem.py; read"
 					</command>
 				</action>
 			</item>
 			<item label="Process Monitor">
 				<action name="Execute">
 					<command>
-						x-terminal-emulator -m -e htop
+						termite -m -e htop
 					</command>
 				</action>
 			</item>
 			<item label="Disks Usage">
 				<action name="Execute">
 					<command>
-						x-terminal-emulator -m -e bash -c 'lsblk -o name,size,type,mountpoint; echo; dfc -f | egrep "^FILESYSTEM|^/dev"; echo; read'
+						termite -m -e bash -c 'lsblk -o name,size,type,mountpoint; echo; dfc -f | egrep "^FILESYSTEM|^/dev"; echo; read'
 					</command>
 				</action>
 			</item>	
 			<item label="CPU Usage">
 				<action name="Execute">
 					<command>
-						x-terminal-emulator -m -e s-tui
+						termite -m -e s-tui
 					</command>
 				</action>
 			</item>	
 			<item label="WIFI Scan Networks">
 				<action name="Execute">
 					<command>
-						x-terminal-emulator -m -e bash -c 'if [ "$(iw dev)" ]; then  while true; do nmcli dev wifi list; read; clear; done; else echo "No WIFI interfaces found!"; read; fi'
+						termite -m -e bash -c 'if [ "$(iw dev)" ]; then  while true; do nmcli dev wifi list; read; clear; done; else echo "No WIFI interfaces found!"; read; fi'
 					</command>
 				</action>
 			</item>	
 			<item label="Check Pending Updates">
 				<action name="Execute">
 					<command>
-						x-terminal-emulator -m -e bash -c "update-notification; update-notification -i"
+						termite -m -e bash -c "update-notification; update-notification -i"
 					</command>
 				</action>
 			</item>	

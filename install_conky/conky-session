@@ -10,16 +10,13 @@
 
 conkys_path="$HOME/.config/conky/"
 
-
 #=== FUNCTION ======================================================================
 # NAME: stop
 # DESCRIPTION: stop all conky process
 #===================================================================================
 function stop() {
-	killall conky
-	killall -9 conky
+	pkill -x -9 conky
 }
-
 
 #=== FUNCTION ======================================================================
 # NAME: start
@@ -27,22 +24,21 @@ function stop() {
 #===================================================================================
 function start() {
 	local IFS=$'\n'
-	for f in $(ls "$conkys_path"/*.conkyrc); do
+	for f in "$conkys_path"/*.conkyrc; do
 		conky -c "$f" &
-	done 
+	done
 }
-
 
 # EXEC ACTION ACCORDING $1
 case "${1,,}" in
-	""|start|restart)
-		stop
-		start		
+"" | start | restart)
+	stop
+	start
 	;;
-	stop)	
-		stop	
+stop)
+	stop
 	;;
-	*)	
-		echo "Usage: conky-session [start|stop|restart]"
+*)
+	echo "Usage: conky-session [start|stop|restart]"
 	;;
 esac

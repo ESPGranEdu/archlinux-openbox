@@ -14,7 +14,7 @@ issue="$(clear)"
 issue="${issue}\e[90m\l\e[0m"
 issue="${issue}\n$(neofetch --config /usr/share/neofetch/config_tty)"
 
-issue="$(echo -e "$issue" | sed -z 's/\n\n\n/ /g')" 	# Sometimes neofetch add extra \n
+issue="$(echo -e "$issue" | sed -z 's/\n\n\n\n\n/ /g')" # Sometimes neofetch add extra \n
 
 # Pending updates
 updates=$(wc -l /var/cache/update-notification 2>/dev/null | cut -f1 -d" ")
@@ -26,15 +26,14 @@ issue="$(echo -e "$issue" | sed "/Local IP/ s/$/($iface)/")"
 
 # Show users:
 issue="${issue}\n\n\n\e[1mUsers\e[0m: "
-for u in $(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | tac); do 
+for u in $(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | tac); do
 	# Red if lock user:
 	[ "$(passwd -S $u | cut -f2 -d" ")" = "L" ] && issue="${issue}\e[91m"
 	# Add * to sudo users:
 	grep -Po '^sudo.+:\K.*$' /etc/group | grep -w "$u" &>/dev/null && u="${u}*"
-	
-	issue="${issue}$u\e[0m  " 
+
+	issue="${issue}$u\e[0m  "
 done
 issue="${issue}\n"
 
-echo -e "$issue" > /etc/issue
-
+echo -e "$issue" >/etc/issue

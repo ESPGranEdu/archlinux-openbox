@@ -9,12 +9,12 @@
       type = Terminal
     [[[window0]]]
       parent = ""
-      size = 680, 535
+      size = 1024, 768
       type = Window
 [plugins]
 [profiles]
   [[default]]
-    background_darkness = 1.0
+    background_darkness = 0.8
     background_type = transparent
     cursor_color = "#6ab3b3"
     cursor_color_fg = False

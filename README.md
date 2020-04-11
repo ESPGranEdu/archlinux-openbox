@@ -1,4 +1,4 @@
-# Openbox install script collection for Debian
+# Openbox install script collection for Arch Linux
 <img align="left"  src="https://user-images.githubusercontent.com/32820131/77852132-2de64c00-71dd-11ea-8a66-e4cd3de916f8.png" width="90"> Openbox is a beautiful and lightweight window manager, but tediuos to install and config a full usable environment. This script collection automatize **Openbox** installation and essentials tools and apply my personal configurations, styles and themes. Althoughs is a collection of my particular configs may be interesting for someone.
  
 Each action script and dependences are in a directory. There are 4 scripts categories:
@@ -33,8 +33,8 @@ The main script `install` can exec all scripts or only a select list:
 
 &nbsp; 
 ## Install
-  * Install Debian 10 netinstall, better don't install `Debian desktop environment`. Script should work in Debian 9 too and may be in others Debian based systems, but isn't guaranted.
-  * Clone or download this project: `git clone https://github.com/leomarcov/debian-openbox`
+  * Install [Arch Linux](https://www.archlinux.org/) or you could install other Arch based distro such as [EndeavourOS](https://endeavouros.com/) or [RebornOS](https://rebornos.org/) (succesor of Antergos), even Manjaro could work, but I'm not sure
+  * Clone or download this project: `git clone https://github.com/ESPGranEdu/archlinux-openbox`
   * Exec `install` script and select scripts you want to install.
   
 ```
@@ -125,6 +125,6 @@ The script can be easily customized. Each `install.sh` script placed in a subdir
 [GPLv3](LICENSE)
 
 ## Contact
-My name is Leonardo Marco. I'm sysadmin teacher in [CIFP Carlos III](https://cifpcarlos3.es/), Cartagena, Murcia (Spain).
+My name's Eduardo Navarro Morales, I'm sysadmin and currently studying at [CIFP Carlos III](https://cifpcarlos3.es/)
 
-You can email me for suggestions, contributions, labadmin help or share your feelings: labadmin@leonardomarco.com
+You can email me at raplhwigum@gmail.com

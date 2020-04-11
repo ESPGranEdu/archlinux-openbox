@@ -10,7 +10,6 @@
 
 tints_path="$HOME/.config/tint2/"
 
-
 #=== FUNCTION ======================================================================
 # NAME: stop
 # DESCRIPTION: stop all tint2 process
@@ -20,29 +19,27 @@ function stop() {
 	killall -9 tint2
 }
 
-
 #=== FUNCTION ======================================================================
 # NAME: start
 # DESCRIPTION: load each .tint file in user tint path
 #===================================================================================
 function start() {
 	local IFS=$'\n'
-	for f in $(ls "$tints_path"/*.tint); do
+	for f in "$tints_path"/*.tint; do
 		(setsid tint2 -c "$f" &)
-	done 
+	done
 }
-
 
 # EXEC ACTION ACCORDING $1
 case "${1,,}" in
-	""|start|restart)
-		stop
-		start		
+"" | start | restart)
+	stop
+	start
 	;;
-	stop)	
-		stop	
+stop)
+	stop
 	;;
-	*)	
-		echo "Usage: tint2-session [start|stop|restart]"
+*)
+	echo "Usage: tint2-session [start|stop|restart]"
 	;;
 esac

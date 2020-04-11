@@ -1,7 +1,22 @@
-alias ls='ls --color=auto'        #DEBIAN-OPENBOX
-alias ll='ls -l --color=auto'     #DEBIAN-OPENBOX
-alias egrep='egrep --color=auto'  #DEBIAN-OPENBOX
-alias fgrep='fgrep --color=auto'  #DEBIAN-OPENBOX
-alias rgrep='rgrep --color=auto'  #DEBIAN-OPENBOX
-alias grep='grep --color=auto'    #DEBIAN-OPENBOX
-alias ip='ip -c'                  #DEBIAN-OPENBOX
+# Check the AUR wrapper installed in the system
+if which pakku &>/dev/null; then
+    aur_wrapper="pakku"
+elif which trizen &>/dev/null; then
+    aur_wrapper="trizen"
+else # If no AUR wrapper found, use yaourt as fallback
+    echo -e "\e[1;36mNo AUR Wrapper found!!!, using \"yaourt\"\e[0m"
+    aur_wrapper="yaourt"
+fi
+
+alias rsync='rsync -a --progress'                                   #ARCHLINUX-OPENBOX
+[ "$aur_wrapper" ] && alias $aur_wrapper="$aur_wrapper --noconfirm" #ARCHLINUX-OPENBOX
+alias ls='ls --color=auto'                                          #ARCHLINUX-OPENBOX
+alias ll='ls -l --color=auto'                                       #ARCHLINUX-OPENBOX
+alias egrep='grep -E --color=auto'                                  #ARCHLINUX-OPENBOX
+alias fgrep='grep -E --color=auto'                                  #ARCHLINUX-OPENBOX
+alias rgrep='grep -r --color=auto'                                  #ARCHLINUX-OPENBOX
+alias grep='grep --color=auto'                                      #ARCHLINUX-OPENBOX
+alias ip='ip -c'                                                    #ARCHLINUX-OPENBOX
+alias bconf='vim ~/.bashrc'                                         #ARCHLINUX-OPENBOX
+alias vconf='vim ~/.vimrc'                                          #ARCHLINUX-OPENBOX
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'       #ARCHLINUX-OPENBOX
