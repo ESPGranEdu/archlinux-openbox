@@ -25,7 +25,7 @@ for d in /etc/skel/ /home/*/; do
 
 	# Copy all conky configs
 	# touch "$d/each .conkyrc file here is autoloaded"
-	cp -v "$base_dir/"*.conkyrc "$d" && chown $(stat "$(dirname "$d")" -c %u:%g) "$d/*.conkyrc"
+	cp -v "$base_dir/"*.conkyrc "$d" && chown $(stat "$(dirname "$d")" -c %u:%g) "$d"/*.conkyrc
 done
 
 # Show /home in conky if /home has mounted in separated partition

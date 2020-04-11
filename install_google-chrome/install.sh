@@ -11,6 +11,6 @@
 # Install Google Chrome
 (
 	cd /home/build
-	trizen -G google-Chrome
+	trizen -G google-chrome
 	cd google-chrome && sudo -u nobody makepkg -sirc --noconfirm
 )
