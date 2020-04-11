@@ -8,7 +8,7 @@
 	exit 1
 }
 
-if grep -qi "serverflags" /etc/xorg.conf; then
+if grep -qi "serverflags" /etc/X11/xorg.conf; then
 	sed -i '/ServerFlags/a \\tOption "DontZap" "off"' /etc/X11/xorg.conf
 else
 	echo -e "Section \"ServerFlags\"
