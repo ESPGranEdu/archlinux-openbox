@@ -32,7 +32,7 @@ debtap -q /tmp/paper-icon-theme.deb <<EOF
 paper-icon-theme
 CA
 EOF
-pacman -U paper-icon-theme_1.4+r696.d2476a62-1_all.pkg.tar.xz
+pacman -U paper-icon-theme_1.4+r696.d2476a62-1-any.pkg.tar.xz
 rm /tmp/paper-icon-theme.deb
 debtap -q "$base_dir"/bunsen-paper-icon-theme*.deb <<EOF
 bunsen-paper-icon-theme
