@@ -32,13 +32,13 @@ debtap -q /tmp/paper-icon-theme.deb <<EOF
 paper-icon-theme
 CA
 EOF
-pacman -U paper-icon-theme*.xz
+pacman -U paper-icon-theme_1.4+r696.d2476a62-1_all.pkg.tar.xz
 rm /tmp/paper-icon-theme.deb
 debtap -q "$base_dir"/bunsen-paper-icon-theme*.deb <<EOF
 bunsen-paper-icon-theme
 CA
 EOF
-pacman -U "$base_dir"/bunsen-paper-icon-theme*.xz
+pacman -U "$base_dir"/bunsen-paper-icon-theme_9.2-1_all.pkg.tar.xz
 
 if [ ! -d /usr/share/icons/Numix/ ]; then
 	echo "$(basename $0) ERROR: Numix theme is not installed"
