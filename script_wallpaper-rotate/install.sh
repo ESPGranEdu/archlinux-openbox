@@ -8,10 +8,7 @@
 base_dir="$(dirname "$(readlink -f "$0")")"
 
 # Install dependences
-if ! which anacron &>/dev/null; then
-	find /var/cache/apt/pkgcache.bin -mtime 0 &>/dev/null ||  apt-get update
-	apt-get -y install anacron
-fi
+pacman -Sy --noconfirm cronie
 
 # Copy rotate script in cron.daily dir
 f="wallpaper-rotate"
