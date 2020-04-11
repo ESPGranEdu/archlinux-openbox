@@ -17,7 +17,8 @@ else
 fi
 
 if [ -f /etc/X11/xorg.conf.d/00-keyboard.conf ]; then
-	sed -i '/InputClass/a \\tOption "XkbOptions" "terminate:ctrl_alt_bksp"' /etc/X11/xorg.conf.d/00-keyboard.conf
+	! grep -q "terminate:ctrl_alt_bksp" ||
+		sed -i '/InputClass/a \\tOption "XkbOptions" "terminate:ctrl_alt_bksp"' /etc/X11/xorg.conf.d/00-keyboard.conf
 else
 	echo -e "Section \"InputClass\"
 	\tIdentifier \"system-keyboard\"
