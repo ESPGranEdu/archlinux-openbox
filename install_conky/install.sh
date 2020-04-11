@@ -11,7 +11,7 @@
 base_dir="$(dirname "$(readlink -f "$0")")"
 
 # Install conky
-pamcan -Sy --noconfirm conky
+pacman -Sy --noconfirm conky
 
 for d in /etc/skel/ /home/*/; do
 	# Skip dirs in /home that not are user home
