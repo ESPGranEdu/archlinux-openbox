@@ -11,13 +11,7 @@
 base_dir="$(dirname "$(readlink -f "$0")")"
 
 # Install Openbox and dependences
-# AUR -> obmenu
 pacman -Sy --noconfirm openbox obconf xorg-server xorg-xinit lxappearance picom xfce4-screenshooter xfce4-clipman-plugin xfce4-power-manager arandr exo gsimplecal xcape gparted file-roller xautomation networkmanager
-(
-	cd /home/build
-	trizen -G obmenu
-	cd obmenu && sudo -u nobody makepkg -sirc --noconfirm
-)
 
 systemctl mask NetworkManager-wait-online.service
 
