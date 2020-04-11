@@ -14,7 +14,7 @@ pacman -Sy --noconfirm pavucontrol
 (
 	cd /home/build
 	trizen -G pnmixer
-	cd pnmixer && makepkg -sirc --noconfirm
+	cd pnmixer && sudo -u nobody makepkg -sirc --noconfirm
 )
 
 # pnmixer config icon

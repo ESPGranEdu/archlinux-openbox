@@ -12,7 +12,7 @@
 (
 	cd /home/build
 	trizen -G wps-Office
-	cd wps-office && makepkg -sirc --noconfirm
+	cd wps-office && sudo -u nobody makepkg -sirc --noconfirm
 )
 
 echo -e "[\e[93mWarning\e[0m] You should install a proper dictionary for better experience"
