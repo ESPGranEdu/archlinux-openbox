@@ -103,7 +103,7 @@ fi
 # we need to set a temporary folder to be able to compile and install packages from thre
 # as "nobody" (also we need to setup sudoers to let nobody exec makepkg as root)
 # TODO: Refactor this
-[ $(id -u) != 0 ] && {
+[ $(id -u) == 0 ] && {
 	mkdir /home/build
 	chgrp nobody /home/build
 	chmod g+ws /home/build
