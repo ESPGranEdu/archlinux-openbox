@@ -27,6 +27,10 @@ for d in /etc/skel /home/*/; do
 	# Skip dirs in /home that not are user home
 	[ "$(dirname "$d")" = "/home" ] && ! id "$(basename "$d")" &>/dev/null && continue
 
+	# Add custom xinitrc to launch openbox
+	f=".xinitrc"
+	{ [ ! -f "$d/$f" ] && sed 's/exec\s*/exec openbox-session/' "$d/$f"; } || echo -e "#!/bin/bash\nexec openbox-session" >"$d/$f"
+
 	# Create config folder if no exists
 	d="$d/.config/"
 	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$d" -c %u:%g) "$d"
@@ -55,6 +59,7 @@ for d in /etc/skel /home/*/; do
 	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$d" -c %u:%g) "$d"
 	f="fonts.conf"
 	cp -v "$base_dir/$f" "$d" && chown -R $(stat "$d" -c %u:%g) "$d/$f"
+
 done
 
 # INSTALL HELP DOCS
@@ -62,5 +67,5 @@ d="help"
 cp -rv "$base_dir/$d" "/usr/share/doc/openbox/"
 
 # INSTALL SYSTEM INFO DEPENDENCES
-wget -P /usr/bin "https://raw.githubusercontent.com/pixelb/ps_mem/master/ps_mem.py" && chmod +x /usr/bin/ps_mem.py
+wget "https://raw.githubusercontent.com/pixelb/ps_mem/master/ps_mem.py" -O /usr/bin/ps_mem && chmod +x /usr/bin/ps_mem
 pacman -Sy --noconfirm s-tui dfc htop
