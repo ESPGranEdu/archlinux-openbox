@@ -10,7 +10,7 @@
 
 # Install Google Chrome
 (
-	cd /home/build
-	trizen -G google-chrome
+	git clone https://aur.archlinux.org/google-chrome
+	cd /home/build/google-chrome
 	cd google-chrome && sudo -u nobody makepkg -sirc --noconfirm
 )

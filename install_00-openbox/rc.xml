@@ -331,7 +331,7 @@
           <enabled>false</enabled>
           <name>Terminal</name>
         </startupnotify>
-        <command>x-terminal-emulator</command>
+        <command>terminator</command>
       </action>
     </keybind>
     <keybind key="W-w">
@@ -367,7 +367,7 @@
           <enabled>false</enabled>
           <name>htop</name>
         </startupnotify>
-        <command>x-terminal-emulator -T 'htop task manager' -e htop</command>
+        <command>terminator -T 'htop task manager' -e htop</command>
       </action>
     </keybind>
     <keybind key="W-v">

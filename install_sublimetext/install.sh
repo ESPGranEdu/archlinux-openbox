@@ -10,7 +10,7 @@
 
 # Install repositories and update
 (
-	cd /home/build
-	trizen -G sublime-text-nightly
-	cd sublime-text-nightly && sudo -u nobody makepkg -sirc --noconfirm
+	git clone https://aur.archlinux.org/sublime-text-nightly /home/build/sublime-text-nightly
+	cd sublime-text-nightly
+	sudo -u nobody makepkg -sirc --noconfirm
 )

@@ -13,28 +13,26 @@ base_dir="$(dirname "$(readlink -f "$0")")"
 icon_default="Numix-Paper"
 # Install debtap to convert .deb pkgs into arch pkg
 (
-	cd /home/build
-	trizen -G debtap
-	cd debtap && sudo -u nobody makepkg -sirc --noconfirm
+	git clone https://aur.archlinux.org/debtap /home/build/debtap
+	cd /home/build/debtap
+	sudo -u nobody makepkg -sirc --noconfirm
 )
 debtap -u
 # INSTALL NUMIX & PAPER ICON PACAKGES
 (
-	cd /home/build
-	trizen -G numix-icon-theme-git
-	cd numix-icon-theme-git && sudo -u nobody makepkg -sirc --noconfirm
+	git clone https://aur.archlinux.org/numix-icon-theme-git
+	cd /home/build/numix-icon-theme-git
+	sudo -u nobody makepkg -sirc --noconfirm
 )
+# Install paper icon theme
 (
-	cat "$base_dir"/paper-icon-theme*.aa
-	cat "$base_dir"/paper-icon-theme*.ab
-) >/tmp/paper-icon-theme.deb
-debtap -q /tmp/paper-icon-theme.deb <<EOF
-paper-icon-theme
-CA
-EOF
-pacman -U /tmp/paper-icon-theme_1.4+r696.d2476a62-1-any.pkg.tar.xz
-rm /tmp/paper-icon-theme.deb
-debtap -q "$base_dir"/bunsen-paper-icon-theme*.deb <<EOF
+	git clone https//aur.archlinux.org/paper-icon-theme /home/build/paper-icon-theme
+	cd /home/build/paper-icon-theme
+	sudo -u nobody makepkg -sirc --noconfirm
+)
+
+# Install bunsen paper icon theme
+debtap -q "$base_dir"/bunsen-paper-icon-theme_9.2-1_all.deb <<EOF
 bunsen-paper-icon-theme
 CA
 EOF
@@ -65,3 +63,6 @@ for d in /etc/skel/ /home/*/; do
 	[ ! -f "$f" ] && cp -v "$base_dir/settings.ini" "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$f"
 	sed -i 's/^gtk-icon-theme-name *= *.*/gtk-icon-theme-name='"$icon_default"'/' "$f"
 done
+
+# Generate numix paper icon theme
+bash "$base_dir"/generate-numix-paper-icon-theme.sh

@@ -12,9 +12,9 @@
 pacman -Sy --noconfirm pavucontrol
 
 (
-	cd /home/build
-	trizen -G pnmixer
-	cd pnmixer && sudo -u nobody makepkg -sirc --noconfirm
+	git clone https://aur.archlinux.org/pnmixer /home/build/pnmixer
+	cd /home/build/pnmixer
+	sudo -u nobody makepkg -sirc --noconfirm
 )
 
 # pnmixer config icon

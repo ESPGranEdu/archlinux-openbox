@@ -10,9 +10,9 @@
 
 # Install WPS Office
 (
-	cd /home/build
-	trizen -G wps-Office
-	cd wps-office && sudo -u nobody makepkg -sirc --noconfirm
+	git clone https://aur.archlinux.org/wps-office /home/build/wps-office
+	cd /home/build/wps-office
+	sudo -u nobody makepkg -sirc --noconfirm
 )
 
 echo -e "[\e[93mWarning\e[0m] You should install a proper dictionary for better experience"

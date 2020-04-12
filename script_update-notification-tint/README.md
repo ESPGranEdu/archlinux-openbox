@@ -14,7 +14,7 @@ panel_itmes = LTEBSC    # Add E in your config
 
 execp = new
 execp_command = update-notification.sh -m
-execp_lclick_command = x-terminal-emulator -b -e update-notification.sh -i
+execp_lclick_command = terminator -b -e update-notification.sh -i
 execp_tooltip = Pending updates...
 execp_interval = 0
 execp_padding = 8 0 0

@@ -104,7 +104,7 @@ fi
 # as "nobody" (also we need to setup sudoers to let nobody exec makepkg as root)
 # TODO: Refactor this
 [ $(id -u) == 0 ] && {
-	mkdir /home/build
+	[ -d /home/build ] || mkdir /home/build
 	chgrp nobody /home/build
 	chmod g+ws /home/build
 	setfacl -m u::rwx,g::rwx /home/build

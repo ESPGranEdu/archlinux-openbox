@@ -12,6 +12,6 @@
 # Install VSCodium
 (
     cd /home/build
-    trizen -G vscodium-bin
+    git clone https://aur.archlinux.org/vscodium-bin /home/build/vscodium-bin
     cd vscodium-bin && sudo -u nobody makepkg -sirc --noconfirm
 )

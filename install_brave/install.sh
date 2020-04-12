@@ -10,7 +10,7 @@
 
 # Install Brave
 (
-	cd /home/build
-	trizen -G brave-bin
-	cd brave-bin && sudo -u nobody makepkg -sirc --noconfirm
+	git clone https://aur.archlinux.org/brave-bin /home/build/brave-bin
+	cd /home/build/brave-bin
+	sudo -u nobody makepkg -sirc --noconfirm
 )

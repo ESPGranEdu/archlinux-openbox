@@ -262,42 +262,42 @@
 			<item label="Memory Usage">
 				<action name="Execute">
 					<command>
-						termite -m -e sudo bash -c "ps_mem.py; read"
+						terminator -m -e sudo bash -c "ps_mem.py; read"
 					</command>
 				</action>
 			</item>
 			<item label="Process Monitor">
 				<action name="Execute">
 					<command>
-						termite -m -e htop
+						terminator -m -e htop
 					</command>
 				</action>
 			</item>
 			<item label="Disks Usage">
 				<action name="Execute">
 					<command>
-						termite -m -e bash -c 'lsblk -o name,size,type,mountpoint; echo; dfc -f | egrep "^FILESYSTEM|^/dev"; echo; read'
+						terminator -m -e bash -c 'lsblk -o name,size,type,mountpoint; echo; dfc -f | egrep "^FILESYSTEM|^/dev"; echo; read'
 					</command>
 				</action>
 			</item>	
 			<item label="CPU Usage">
 				<action name="Execute">
 					<command>
-						termite -m -e s-tui
+						terminator -m -e s-tui
 					</command>
 				</action>
 			</item>	
 			<item label="WIFI Scan Networks">
 				<action name="Execute">
 					<command>
-						termite -m -e bash -c 'if [ "$(iw dev)" ]; then  while true; do nmcli dev wifi list; read; clear; done; else echo "No WIFI interfaces found!"; read; fi'
+						terminator -m -e bash -c 'if [ "$(iw dev)" ]; then  while true; do nmcli dev wifi list; read; clear; done; else echo "No WIFI interfaces found!"; read; fi'
 					</command>
 				</action>
 			</item>	
 			<item label="Check Pending Updates">
 				<action name="Execute">
 					<command>
-						termite -m -e bash -c "update-notification; update-notification -i"
+						terminator -m -e bash -c "update-notification; update-notification -i"
 					</command>
 				</action>
 			</item>	

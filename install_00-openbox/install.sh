@@ -29,7 +29,7 @@ for d in /etc/skel /home/*/; do
 
 	# Create config folder if no exists
 	d="$d/.config/"
-	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d"
+	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$d" -c %u:%g) "$d"
 
 	# Copy compton file
 	f="compton.conf"
@@ -38,7 +38,7 @@ for d in /etc/skel /home/*/; do
 	# Create config folders if no exists
 	d2="$d"
 	d="$d/openbox/"
-	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d"
+	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$d" -c %u:%g) "$d"
 
 	# Copy openbox config file
 	f="rc.xml"
@@ -52,7 +52,7 @@ for d in /etc/skel /home/*/; do
 
 	# Copy fonts.conf
 	d="$d2/fontconfig/"
-	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d"
+	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$d" -c %u:%g) "$d"
 	f="fonts.conf"
 	cp -v "$base_dir/$f" "$d" && chown -R $(stat "$d" -c %u:%g) "$d/$f"
 done
@@ -63,4 +63,4 @@ cp -rv "$base_dir/$d" "/usr/share/doc/openbox/"
 
 # INSTALL SYSTEM INFO DEPENDENCES
 wget -P /usr/bin "https://raw.githubusercontent.com/pixelb/ps_mem/master/ps_mem.py" && chmod +x /usr/bin/ps_mem.py
-pacman -Syy --noconfirm s-tui dfc htop
+pacman -Sy --noconfirm s-tui dfc htop
