@@ -11,7 +11,7 @@
 base_dir="$(dirname "$(readlink -f "$0")")"
 
 # Install Openbox and dependences
-pacman -Sy --noconfirm openbox obconf xorg-server xorg-xinit lxappearance picom xfce4-screenshooter xfce4-clipman-plugin xfce4-power-manager arandr exo gsimplecal xcape gparted file-roller xautomation networkmanager
+pacman -Sy --noconfirm openbox obconf xorg xorg-server xorg-xinit lxappearance picom xfce4-screenshooter xfce4-clipman-plugin xfce4-power-manager arandr exo gsimplecal xcape gparted file-roller xautomation networkmanager
 
 systemctl mask NetworkManager-wait-online.service
 
