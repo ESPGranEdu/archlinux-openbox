@@ -100,8 +100,8 @@ fi
 
 #=== EXEC-ACTIONS ==================================================================
 # Some packages come from Arch User Repos, and makepkg can not install as root
-# we need to set a temporary folder to be able to compile and install packages from thre
-# as "nobody" (also we need to setup sudoers to let nobody exec makepkg as root)
+# so we let temporarily root permissions to "nobody" user to be able to compile
+# the pkgs from AUR
 [ $(id -u) == 0 ] && echo "nobody ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers
 
 base_dir="$(dirname "$(readlink -f "$0")")"
