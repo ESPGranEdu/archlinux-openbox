@@ -138,11 +138,14 @@ for script in \
 	fi
 done
 
-# Remove the temp folder
-rm -rf /home/build
+[ $(id -u) == 0 ] && {
 
-# Delete nobody from sudoers
-sed -i '/nobody/d' /etc/sudoers
+	# Remove the temp folder
+	rm -rf /home/build
+
+	# Delete nobody from sudoers
+	sed -i '/nobody/d' /etc/sudoers
+}
 
 if [ ! "$list" ] && [ ! "$actions" ] && ask_action "Reboot" "" "y"; then
 	reboot
