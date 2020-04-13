@@ -30,7 +30,8 @@ for d in /etc/skel /home/*/; do
 
 	# Add custom xinitrc to launch openbox
 	f=".xinitrc"
-	{ [ ! -f "$d/$f" ] && sed 's/exec\s*/exec openbox-session/' "$d/$f"; } || echo -e "#!/bin/bash\nexec openbox-session" >"$d/$f"
+	{ [ ! -f "$d/$f" ] && sed 's/exec\s*/exec openbox-session/' "$d/$f"; } ||
+		echo -e "#!/bin/bash\nexec openbox-session" >"$d/$f" && chown -R $(stat "$d" -c %u:%g) "$d/$f"
 
 	# Create config folder if no exists
 	d="$d/.config/"
