@@ -10,7 +10,7 @@
 }
 
 # Install free packages
-pacman -Syy --noconfirm vim vlc zip unzip gmtp mtpfs mailutils traceroute acl gnupg yad mlocate evince wget cronie xdg-utils man
+pacman -Syy --noconfirm vim vlc zip unzip gmtp mtpfs mailutils traceroute acl gnupg yad mlocate evince wget cronie xdg-utils man rsync
 
 # Enable cronie
 systemctl enable --now cronie

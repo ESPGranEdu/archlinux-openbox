@@ -34,11 +34,7 @@ debtap -u
 )
 
 # Install bunsen paper icon theme
-debtap -q "$base_dir"/bunsen-paper-icon-theme_9.2-1_all.deb <<EOF
-bunsen-paper-icon-theme
-CA
-EOF
-pacman -U "$base_dir"/bunsen-paper-icon-theme_9.2-1_all.pkg.tar.xz
+cp -v ./Paper-bunsen /usr/share/icons/
 
 if [ ! -d /usr/share/icons/Numix/ ]; then
 	echo "$(basename $0) ERROR: Numix theme is not installed"
@@ -52,17 +48,17 @@ for d in /etc/skel/ /home/*/; do
 	[ "$(dirname "$d")" = "/home" ] && ! id "$(basename "$d")" &>/dev/null && continue
 
 	f="$d/.gtkrc-2.0"
-	[ ! -f "$f" ] && cp -v "$base_dir/gtkrc-2.0" "$d/.gtkrc-2.0" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$f"
+	[ ! -f "$f" ] && cp -v "$base_dir/gtkrc-2.0" "$d/.gtkrc-2.0" && chown -R $(stat "$d" -c %u:%g) "$f"
 	sed -i 's/^gtk-icon-theme-name *= *.*/gtk-icon-theme-name="'"$icon_default"'"/' "$f"
 
 	# Create config folders if no exists
 	d="$d/.config/"
-	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d"
+	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$d" -c %u:%g) "$d"
 	d="$d/gtk-3.0/"
-	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d"
+	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$d" -c %u:%g) "$d"
 
 	f="$d/settings.ini"
-	[ ! -f "$f" ] && cp -v "$base_dir/settings.ini" "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$f"
+	[ ! -f "$f" ] && cp -v "$base_dir/settings.ini" "$d" && chown -R $(stat "$d" -c %u:%g) "$f"
 	sed -i 's/^gtk-icon-theme-name *= *.*/gtk-icon-theme-name='"$icon_default"'/' "$f"
 done
 

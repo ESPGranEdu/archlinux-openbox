@@ -15,7 +15,8 @@ conkys_path="$HOME/.config/conky/"
 # DESCRIPTION: stop all conky process
 #===================================================================================
 function stop() {
-	pkill -x -9 conky
+    killall conky
+    killall -9 conky
 }
 
 #=== FUNCTION ======================================================================
@@ -23,22 +24,22 @@ function stop() {
 # DESCRIPTION: load each .conkyrc file in user conky path
 #===================================================================================
 function start() {
-	local IFS=$'\n'
-	for f in "$conkys_path"/*.conkyrc; do
-		conky -c "$f" &
-	done
+    local IFS=$'\n'
+    for f in "$conkys_path"/*.conkyrc; do
+        conky -c "$f" &
+    done
 }
 
 # EXEC ACTION ACCORDING $1
 case "${1,,}" in
 "" | start | restart)
-	stop
-	start
-	;;
+    stop
+    start
+    ;;
 stop)
-	stop
-	;;
+    stop
+    ;;
 *)
-	echo "Usage: conky-session [start|stop|restart]"
-	;;
+    echo "Usage: conky-session [start|stop|restart]"
+    ;;
 esac

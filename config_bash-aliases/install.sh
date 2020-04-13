@@ -18,9 +18,17 @@ for d in /home/*/ /etc/skel/ /root; do
 	sed -i "/$comment_mark/Id" "$d/.bash_aliases" 2>/dev/null
 	cp -v "$base_dir/bash_aliases" "$d/.bash_aliases"
 
-	grep -q ".bash_aliases" "$d/.bashrc" || echo '
+	if [ -f "$d"/.bashrc ]; then
+		grep -q ".bash_aliases" "$d/.bashrc" || echo '
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 ' >>"$d/.bashrc"
+	else
+		echo '
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+' >>"$d/.bashrc"
+	fi
 done

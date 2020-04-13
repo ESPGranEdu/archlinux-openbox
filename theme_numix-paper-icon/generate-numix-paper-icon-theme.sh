@@ -34,8 +34,8 @@ if [ ! -d "$paper_dir" ]; then
 	fi
 	[ "${q,,}" = "n" ] && exit 0
 fi
-(
 
+(
 	echo -e "\nGENERATING $install_dir dirs"
 	[ ! -d "$install_dir" ] && mkdir -v "$install_dir"
 	[ ! -w /"$install_dir" ] && echo "Can't create $install_dir directory" && exit 1

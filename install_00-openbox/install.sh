@@ -21,6 +21,7 @@ cp -rv "$base_dir/openbox-menu" /usr/share/icons/
 
 # COPY obamenu
 cp -v "$base_dir/obamenu" /usr/bin
+chmod +x /usr/bin/obamenu
 
 # COPY OPENBOX CONFIG FILES
 for d in /etc/skel /home/*/; do

@@ -20,4 +20,4 @@ alias ip='ip -c'                                                    #ARCHLINUX-O
 alias bconf='vim ~/.bashrc'                                         #ARCHLINUX-OPENBOX
 alias vconf='vim ~/.vimrc'                                          #ARCHLINUX-OPENBOX
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'       #ARCHLINUX-OPENBOX
-alias update='aur_wrapper -Syu'
+alias update="$aur_wrapper -Syu"

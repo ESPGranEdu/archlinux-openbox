@@ -19,5 +19,5 @@ for d in /home/* /etc/skel/ /root; do
 	sed -i "/$comment_mark/Id" "$d/.bashrc" 2>/dev/null
 
 	# Append prompt to bashrc
-	cat "$base_dir/bashrc" >>"$d/.bashrc"
+	cat "$base_dir/bashrc" >>"$d/.bashrc" && chown -R "$(stat "$d" -c %u:%g)" "$d/.bashrc"
 done
