@@ -21,7 +21,7 @@ debtap -u
 
 # INSTALL NUMIX & PAPER ICON PACAKGES
 (
-	git clone https://aur.archlinux.org/numix-icon-theme-git
+	git clone https://aur.archlinux.org/numix-icon-theme-git /home/build/numix-icon-theme-git
 	cd /home/build/numix-icon-theme-git
 	sudo -u nobody makepkg -sirc --noconfirm
 )
@@ -34,7 +34,7 @@ debtap -u
 )
 
 # Install bunsen paper icon theme
-cp -v ./Paper-bunsen /usr/share/icons/
+cp -v "$base_dir"/Paper-bunsen /usr/share/icons/
 
 if [ ! -d /usr/share/icons/Numix/ ]; then
 	echo "$(basename $0) ERROR: Numix theme is not installed"

@@ -11,7 +11,7 @@
 base_dir="$(dirname "$(readlink -f "$0")")"
 
 # Install fonts-noto for utf-8 symbols
-pacman -Sy noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
+pacman -Sy --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
 
 f="obexit"
 cp -v "$base_dir/$f" /usr/bin
@@ -23,11 +23,11 @@ for d in /etc/skel/ /home/*/; do
 
 	# Create config folders if no exists
 	d="$d/.config/"
-	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d"
+	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$d" -c %u:%g) "$d"
 	d="$d/rofi/"
-	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d"
+	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$d" -c %u:%g) "$d"
 
 	# Copy theme
 	f="openbox-menu.rasi"
-	cp -v "$base_dir/$f" "$d/" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d/$f"
+	cp -v "$base_dir/$f" "$d/" && chown -R $(stat "$d" -c %u:%g) "$d/$f"
 done
