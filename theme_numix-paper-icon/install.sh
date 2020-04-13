@@ -11,13 +11,6 @@
 
 base_dir="$(dirname "$(readlink -f "$0")")"
 icon_default="Numix-Paper"
-# Install debtap to convert .deb pkgs into arch pkg
-(
-	git clone https://aur.archlinux.org/debtap /home/build/debtap
-	cd /home/build/debtap
-	sudo -u nobody makepkg -sirc --noconfirm
-)
-debtap -u
 
 # INSTALL NUMIX & PAPER ICON PACAKGES
 (
