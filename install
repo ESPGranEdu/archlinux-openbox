@@ -102,15 +102,7 @@ fi
 # Some packages come from Arch User Repos, and makepkg can not install as root
 # we need to set a temporary folder to be able to compile and install packages from thre
 # as "nobody" (also we need to setup sudoers to let nobody exec makepkg as root)
-# TODO: Refactor this
-[ $(id -u) == 0 ] && {
-	[ -d /home/build ] || mkdir /home/build
-	chgrp nobody /home/build
-	chmod g+ws /home/build
-	setfacl -m u::rwx,g::rwx /home/build
-	setfacl -d --set u::rwx,g::rwx,o::- /home/build
-	echo "nobody ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers
-}
+[ $(id -u) == 0 ] && echo "nobody ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers
 
 base_dir="$(dirname "$(readlink -f "$0")")"
 echo "$PATH" | grep -q sbin || export PATH="/sbin/:/usr/sbin:$PATH"
@@ -138,14 +130,7 @@ for script in \
 	fi
 done
 
-[ $(id -u) == 0 ] && {
-
-	# Remove the temp folder
-	rm -rf /home/build
-
-	# Delete nobody from sudoers
-	sed -i '/nobody/d' /etc/sudoers
-}
+[ $(id -u) == 0 ] && sed -i '/nobody/d' /etc/sudoers # Delete nobody from sudoers
 
 if [ ! "$list" ] && [ ! "$actions" ] && ask_action "Reboot" "" "y"; then
 	reboot

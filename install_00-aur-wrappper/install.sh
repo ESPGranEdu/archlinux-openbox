@@ -9,7 +9,6 @@
     exit 1
 }
 
-sudo
 # Clone trizen repos
 sudo -u nobody git clone https://aur.archlinux.org/trizen /tmp/trizen
 
