@@ -18,8 +18,8 @@ x-scheme-handler/unknown=brave-browser.desktop"
 
 # Install Brave
 (
-	git clone https://aur.archlinux.org/brave-bin /home/build/brave-bin
-	cd /home/build/brave-bin
+	git clone https://aur.archlinux.org/brave-bin /tmp/brave-bin
+	cd /tmp/brave-bin
 	sudo -u nobody makepkg -sirc --noconfirm
 )
 

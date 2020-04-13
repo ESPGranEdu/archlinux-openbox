@@ -10,8 +10,8 @@
 
 # Install WPS Office
 (
-	git clone https://aur.archlinux.org/wps-office /home/build/wps-office
-	cd /home/build/wps-office
+	git clone https://aur.archlinux.org/wps-office /tmp/wps-office
+	cd /tmp/wps-office
 	sudo -u nobody makepkg -sirc --noconfirm
 )
 

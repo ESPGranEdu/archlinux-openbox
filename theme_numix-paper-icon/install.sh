@@ -14,15 +14,15 @@ icon_default="Numix-Paper"
 
 # INSTALL NUMIX & PAPER ICON PACAKGES
 (
-	git clone https://aur.archlinux.org/numix-icon-theme-git /home/build/numix-icon-theme-git
-	cd /home/build/numix-icon-theme-git
+	git clone https://aur.archlinux.org/numix-icon-theme-git /tmp/numix-icon-theme-git
+	cd /tmp/numix-icon-theme-git
 	sudo -u nobody makepkg -sirc --noconfirm
 )
 
 # Install paper icon theme
 (
-	git clone https//aur.archlinux.org/paper-icon-theme /home/build/paper-icon-theme
-	cd /home/build/paper-icon-theme
+	git clone https//aur.archlinux.org/paper-icon-theme /tmp/paper-icon-theme
+	cd /tmp/paper-icon-theme
 	sudo -u nobody makepkg -sirc --noconfirm
 )
 

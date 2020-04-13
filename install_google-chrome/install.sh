@@ -19,7 +19,7 @@ x-scheme-handler/unknown=google-chrome.desktop"
 # Install Google Chrome
 (
 	git clone https://aur.archlinux.org/google-chrome
-	cd /home/build/google-chrome
+	cd /tmp/google-chrome
 	cd google-chrome && sudo -u nobody makepkg -sirc --noconfirm
 )
 

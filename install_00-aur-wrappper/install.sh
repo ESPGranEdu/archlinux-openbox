@@ -10,10 +10,10 @@
 }
 
 # Clone trizen repos
-git clone https://aur.archlinux.org/trizen /home/build/trizen
+git clone https://aur.archlinux.org/trizen /tmp/trizen
 
 # Make and install
 (
-    cd /home/build/trizen
+    cd /tmp/trizen
     sudo -u nobody makepkg -sirc --noconfirm
 )

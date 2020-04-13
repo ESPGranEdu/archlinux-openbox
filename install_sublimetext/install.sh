@@ -10,7 +10,7 @@
 
 # Install repositories and update
 (
-	git clone https://aur.archlinux.org/sublime-text-nightly /home/build/sublime-text-nightly
+	git clone https://aur.archlinux.org/sublime-text-nightly /tmp/sublime-text-nightly
 	cd sublime-text-nightly
 	sudo -u nobody makepkg -sirc --noconfirm
 )
