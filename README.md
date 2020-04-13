@@ -34,7 +34,7 @@ The main script `install` can exec all scripts or only a select list:
 &nbsp; 
 ## Install
   * Install [Arch Linux](https://www.archlinux.org/) or you could install other Arch based distro such as [EndeavourOS](https://endeavouros.com/) or [RebornOS](https://rebornos.org/) (succesor of Antergos), even Manjaro could work, but I'm not sure
-  * Clone or download this project: `git clone https://github.com/ESPGranEdu/archlinux-openbox`
+  * Clone or download this project: `sudo -u nobody git clone https://github.com/ESPGranEdu/archlinux-openbox`
   * Exec `install` script and select scripts you want to install.
   
 ```

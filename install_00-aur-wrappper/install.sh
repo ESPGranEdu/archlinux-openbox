@@ -9,8 +9,9 @@
     exit 1
 }
 
+sudo
 # Clone trizen repos
-git clone https://aur.archlinux.org/trizen /tmp/trizen
+sudo -u nobody git clone https://aur.archlinux.org/trizen /tmp/trizen
 
 # Make and install
 (

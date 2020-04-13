@@ -11,7 +11,7 @@
 
 # Install VSCodium
 (
-    git clone https://aur.archlinux.org/vscodium-bin /tmp/vscodium-bin
+    sudo -u nobody git clone https://aur.archlinux.org/vscodium-bin /tmp/vscodium-bin
     cd /tmp/vscodium-bin
     sudo -u nobody makepkg -sirc --noconfirm
 )

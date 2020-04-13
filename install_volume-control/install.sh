@@ -12,7 +12,7 @@
 pacman -Sy --noconfirm pavucontrol
 
 (
-	git clone https://aur.archlinux.org/pnmixer /tmp/pnmixer
+	sudo -u nobody git clone https://aur.archlinux.org/pnmixer /tmp/pnmixer
 	cd /tmp/pnmixer
 	sudo -u nobody makepkg -sirc --noconfirm
 )
