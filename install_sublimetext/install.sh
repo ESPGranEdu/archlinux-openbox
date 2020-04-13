@@ -1,5 +1,5 @@
 #!/bin/bash
-# ACTION: Install Sublime Text, add repositories and set as default editor
+# ACTION: Install Sublime Text
 # DEFAULT: y
 
 # Check root

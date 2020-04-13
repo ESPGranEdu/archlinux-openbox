@@ -18,12 +18,14 @@ icon_default="Numix-Paper"
 	sudo -u nobody makepkg -sirc --noconfirm
 )
 debtap -u
+
 # INSTALL NUMIX & PAPER ICON PACAKGES
 (
 	git clone https://aur.archlinux.org/numix-icon-theme-git
 	cd /home/build/numix-icon-theme-git
 	sudo -u nobody makepkg -sirc --noconfirm
 )
+
 # Install paper icon theme
 (
 	git clone https//aur.archlinux.org/paper-icon-theme /home/build/paper-icon-theme
@@ -65,4 +67,4 @@ for d in /etc/skel/ /home/*/; do
 done
 
 # Generate numix paper icon theme
-bash "$base_dir"/generate-numix-paper-icon-theme.sh
+bash "$base_dir"/generate-numix-paper-icon-theme.sh -I

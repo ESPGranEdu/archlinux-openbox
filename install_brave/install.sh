@@ -1,5 +1,5 @@
 #!/bin/bash
-# ACTION: Install Brave browser, add to repositories and set has default browser
+# ACTION: Install Brave browser and set has default browser
 # DEFAULT: y
 
 # Check root
@@ -14,3 +14,6 @@
 	cd /home/build/brave-bin
 	sudo -u nobody makepkg -sirc --noconfirm
 )
+
+# Set Brave as default browser
+xdg-settings set default-web-browser brave-browser.desktop

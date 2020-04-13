@@ -10,7 +10,11 @@
 }
 
 # Install free packages
-pacman -Syy --noconfirm vim vlc zip unzip gmtp mtpfs mailutils traceroute acl gnupg yad mlocate evince wget cronie
+pacman -Syy --noconfirm vim vlc zip unzip gmtp mtpfs mailutils traceroute acl gnupg yad mlocate evince wget cronie xdg-utils man
 
 # Enable cronie
 systemctl enable --now cronie
+
+# Update man database and set cronjob to update periodically
+echo -e "#!/bin/sh\nmandb" >/etc/cron.daily/mandb_update
+chmod +x /etc/cron.daily/mandb_update

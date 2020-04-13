@@ -1,5 +1,5 @@
 #!/bin/bash
-# ACTION: Install Google Chrome, add to repositories and set has default browser
+# ACTION: Install Google Chrome and set has default browser
 # DEFAULT: n
 
 # Check root
@@ -14,3 +14,6 @@
 	cd /home/build/google-chrome
 	cd google-chrome && sudo -u nobody makepkg -sirc --noconfirm
 )
+
+# Set as default browser
+xdg-settings set default-web-browser google-chrome.desktop
