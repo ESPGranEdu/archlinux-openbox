@@ -8,6 +8,14 @@
 	exit 1
 }
 
+# Association template
+xdg_template="[Default Applications]
+text/html=brave-browser.desktop
+x-scheme-handler/http=brave-browser.desktop
+x-scheme-handler/https=brave-browser.desktop
+x-scheme-handler/about=brave-browser.desktop
+x-scheme-handler/unknown=brave-browser.desktop"
+
 # Install Brave
 (
 	git clone https://aur.archlinux.org/brave-bin /home/build/brave-bin
@@ -15,5 +23,8 @@
 	sudo -u nobody makepkg -sirc --noconfirm
 )
 
-# Set Brave as default browser
-xdg-settings set default-web-browser brave-browser.desktop
+for d in /etc/skel /home/*/; do
+	# Set Brave as default browser
+	d="$d/.config"
+	[ ! -d "$d/.config" ] && mkdir -v "$d/.config" && echo "$xdg_template" >"$d/mimeapp.list" && chown -R $(stat "$d" -c %u:%g) "$d"
+done
