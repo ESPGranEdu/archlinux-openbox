@@ -287,6 +287,12 @@ function main() {
 		ask_action $naction && bash "$path"
 	done
 
+	# Fix permission problem
+	for d in /home/*/; do
+		chown -R $(stat "$d" -c %u:%g) "$d"/.config
+		chown -R $(stat "$d" -c %u:%g) "$d"/.bash*
+	done
+
 	! [ "$list" ] && sed -i "/nobody/d" /etc/sudoers
 
 }
