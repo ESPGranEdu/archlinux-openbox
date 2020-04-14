@@ -36,7 +36,7 @@ if [ ! -d "$paper_dir" ]; then
 fi
 
 (
-	echo -e "\nGENERATING $install_dir dirs"
+	echo -e "\n\nGENERATING $install_dir dirs"
 	[ ! -d "$install_dir" ] && mkdir -v "$install_dir"
 	[ ! -w /"$install_dir" ] && echo "Can't create $install_dir directory" && exit 1
 	cp "$(readlink -f "$0")" "$install_dir"
@@ -53,8 +53,8 @@ fi
 	done
 
 	if [ -d "$paper_dir" ]; then
-		echo -e "\nºnGENERATING PAPER LINKS..."
-		for f in $(ls ../Paper/*/apps/* ../Paper/*/panel/*); do
+		echo -e "\n\nGENERATING PAPER LINKS..."
+		for f in ../Paper/*/apps/* ../Paper/*/panel/*; do
 			ln -svf "../../$f" $(echo "$f" | sed 's/..\/Paper\///g' | sed 's/^[0-9]\+x//g') 2>/dev/null
 		done
 		# Change terminator icon for terminal

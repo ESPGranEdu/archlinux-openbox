@@ -92,7 +92,7 @@ done
 
 #=== CHECKS =======================================================================
 [ ! "$list" ] && [ "$(id -u)" -ne 0 ] && echo "Administrative privileges needed" && exit 1
-if ! cat /etc/*release | grep -Ei "arch|reborn|react" &>/dev/null; then
+if ! cat /etc/*release | grep -Ei "arch|reborn|endeavour" &>/dev/null; then
 	echo "Seems you are not running Arch Linux distro"
 	echo "Some actions may fail. Cross your fingers and press enter..."
 	read -s # Dont display keys
@@ -114,8 +114,8 @@ shopt -s extglob
 for script in \
 	"$base_dir"/install_*/install.sh \
 	"$base_dir"/config_*/install.sh \
-	"$base_dir"/script_*/install.sh \
-	"$base_dir"/theme_*/install.sh; do
+	"$base_dir"/theme_*/install.sh \
+	"$base_dir"/script_*/install.sh; do
 	head="$(head -10 "$script")"
 	# Get ACTION field:
 	action="$(echo "$head" | grep "#[[:blank:]]*ACTION:" | sed 's/#[[:blank:]]*ACTION:[[:blank:]]*//')"
@@ -131,6 +131,12 @@ for script in \
 done
 
 [ $(id -u) == 0 ] && sed -i '/nobody/d' /etc/sudoers # Delete nobody from sudoers
+
+# Fix permission problem
+for d in /home/*/; do
+	chown -vR "$(stat "$(dirname "$d")" -c %u:%g)" "$d/.config"
+	chown -vR "$(stat "$(dirname "$d")" -c %u:%g)" "$d/.bash*"
+done
 
 if [ ! "$list" ] && [ ! "$actions" ] && ask_action "Reboot" "" "y"; then
 	reboot
