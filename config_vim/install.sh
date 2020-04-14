@@ -17,5 +17,5 @@ for d in /etc/skel/ /home/*/ /root/; do
 	# Skip dirs in /home that not are user home
 	[ "$(dirname "$d")" = "/home" ] && ! id "$(basename "$d")" &>/dev/null && continue
 
-	cp -v "$base_dir/vimrc" "$d/.vimrc" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d/.vimrc"
+	cp -v "$base_dir/vimrc" "$d/.vimrc" && chown -R $(stat "$d" -c %u:%g) "$d/.vimrc"
 done

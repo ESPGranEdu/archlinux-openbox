@@ -13,6 +13,7 @@ base_dir="$(dirname "$(readlink -f "$0")")"
 wp_base="/usr/share/backgrounds/"
 
 # Select default wallpaper
+[ -f "/etc/cron.daily/wallpaper-rotate" ] && /etc/cron.daily/wallpaper-rotate
 if [ -f "$wp_base/wallpapers-alinz/wp-rotate.png" ]; then
 	wp_dir="wallpapers-alinz"
 	wp_default="wp-rotate.png"
@@ -36,15 +37,15 @@ for d in /etc/skel/ /home/*/; do
 
 	# Create config folders if no exists
 	d="$d/.config/"
-	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d"
+	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$d" -c %u:%g) "$d"
 	d="$d/nitrogen/"
-	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d"
+	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$d" -c %u:%g) "$d"
 
 	f="nitrogen.cfg"
-	[ ! -f "$d/$f" ] && cp "$base_dir/$f" "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d/$f"
+	[ ! -f "$d/$f" ] && cp "$base_dir/$f" "$d" && chown -R $(stat "$d" -c %u:%g) "$d/$f"
 	sed -i 's/^dirs *= *.*/dirs='$(echo "$wp_base" | sed 's/\//\\\//g')';/' "$d/$f"
 
 	f="bg-saved.cfg"
-	[ ! -f "$d/$f" ] && cp "$base_dir/$f" "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d/$f"
+	[ ! -f "$d/$f" ] && cp "$base_dir/$f" "$d" && chown -R $(stat "$d" -c %u:%g) "$d/$f"
 	sed -i 's/^file *= *.*/file='$(echo "$wp_base/$wp_dir/$wp_default" | sed 's/\//\\\//g')'/' "$d/$f"
 done

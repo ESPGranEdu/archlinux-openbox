@@ -24,14 +24,14 @@ for d in /etc/skel /home/*/; do
 
 	# Create config folders if no exists
 	d="$d/.config/"
-	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d"
+	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$d" -c %u:%g) "$d"
 	d="$d/pnmixer/"
-	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d"
+	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$d" -c %u:%g) "$d"
 
 	# Set theme icon
 	f="$d/config"
 	if [ ! -f "$f" ]; then
-		echo -e "[PNMixer]\nSystemTheme=true\nVolumeControlCommand=pavucontrol" >"$f" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$f"
+		echo -e "[PNMixer]\nSystemTheme=true\nVolumeControlCommand=pavucontrol" >"$f" && chown -R $(stat "$d" -c %u:%g) "$f"
 	else
 		sed -i 's/SystemTheme=.*/SystemTheme=true/' "$f"
 	fi

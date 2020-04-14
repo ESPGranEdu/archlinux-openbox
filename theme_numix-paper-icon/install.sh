@@ -27,7 +27,7 @@ icon_default="Numix-Paper"
 )
 
 # Install bunsen paper icon theme
-cp -v "$base_dir"/Paper-bunsen /usr/share/icons/
+tar -xzvf "$base_dir"/paper-bunsen-icon-theme.tgz -C /usr/share/icons/
 
 if [ ! -d /usr/share/icons/Numix/ ]; then
 	echo "$(basename $0) ERROR: Numix theme is not installed"

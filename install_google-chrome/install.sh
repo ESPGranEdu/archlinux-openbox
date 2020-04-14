@@ -1,5 +1,5 @@
 #!/bin/bash
-# ACTION: Install Google Chrome and set has default browser
+# ACTION: Install Google Chrome and set as default browser
 # DEFAULT: n
 
 # Check root

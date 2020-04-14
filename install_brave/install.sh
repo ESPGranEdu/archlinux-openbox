@@ -1,5 +1,5 @@
 #!/bin/bash
-# ACTION: Install Brave browser and set has default browser
+# ACTION: Install Brave browser and set as default browser
 # DEFAULT: y
 
 # Check root

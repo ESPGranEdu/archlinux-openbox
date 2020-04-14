@@ -1,5 +1,5 @@
 #!/bin/bash
-# ACTION: Install VirtualBox 6.1 and Extension Pack, add to repositories and insert to Openbox menu
+# ACTION: Install VirtualBox 6.1 and Extension Pack
 # DEFAULT: y
 
 # Check root
@@ -30,5 +30,5 @@ wget -P "$t" "$ep_url"
 rm -rf "$t"
 
 # Fix Virtualbox not load gtk theme
-pacman -Sy qt5-styleplugins
+pacman -Sy --noconfirm qt5-styleplugins
 echo "export QT_QPA_PLATFORMTHEME=gtk2" >>/etc/environment
