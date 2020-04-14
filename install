@@ -134,8 +134,8 @@ done
 
 # Fix permission problem
 for d in /home/*/; do
-	chown -vR "$(stat "$(dirname "$d")" -c %u:%g)" "$d/.config"
-	chown -vR "$(stat "$(dirname "$d")" -c %u:%g)" "$d"/.bash*
+	chown -vR "$(stat "$d" -c %u:%g)" "$d/.config"
+	chown -vR "$(stat "$d" -c %u:%g)" "$d"/.bash*
 done
 
 if [ ! "$list" ] && [ ! "$actions" ] && ask_action "Reboot" "" "y"; then
