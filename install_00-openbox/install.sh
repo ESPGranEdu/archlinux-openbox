@@ -11,7 +11,7 @@
 base_dir="$(dirname "$(readlink -f "$0")")"
 
 # Install Openbox and dependences
-pacman -Sy --noconfirm openbox obconf xorg xorg-server xorg-xinit lxappearance picom xfce4-screenshooter xfce4-clipman-plugin xfce4-power-manager arandr exo gsimplecal xcape gparted file-roller xautomation networkmanager
+pacman -Sy --noconfirm openbox obconf xorg xorg-server xorg-xinit lxappearance picom xfce4-screenshooter xfce4-clipman-plugin xfce4-power-manager arandr exo gsimplecal xcape gparted file-roller xautomation networkmanager python-pyxdg
 
 systemctl mask NetworkManager-wait-online.service
 
@@ -39,6 +39,10 @@ for d in /etc/skel /home/*/; do
 
 	# Copy compton file
 	f="compton.conf"
+	cp -v "$base_dir/$f" "$d" && chown -R $(stat "$d" -c %u:%g) "$d/$f"
+
+	# Copy mimeapps.list file
+	f="mimeapps.list"
 	cp -v "$base_dir/$f" "$d" && chown -R $(stat "$d" -c %u:%g) "$d/$f"
 
 	# Create config folders if no exists
@@ -71,3 +75,7 @@ cp -rv "$base_dir/$d" "/usr/share/doc/openbox/"
 # INSTALL SYSTEM INFO DEPENDENCES
 wget "https://raw.githubusercontent.com/pixelb/ps_mem/master/ps_mem.py" -O /usr/bin/ps_mem && chmod +x /usr/bin/ps_mem
 pacman -Sy --noconfirm s-tui dfc htop
+
+# Copy cups-session
+cp -v "$base_dir"/cups-session /usr/bin
+chmod a+x /usr/bin/cups-session

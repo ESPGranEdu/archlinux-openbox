@@ -14,14 +14,6 @@
 		</item> 
 
 		<separator/>
-
-		<item label="VirtualBox" icon="/usr/share/icons/openbox-menu/virtualbox.png">
-			<action name="Execute">
-				<command>
-					virtualbox
-				</command>
-			</action>
-		</item> 
 		
 		<item label="Terminal" icon="/usr/share/icons/openbox-menu/terminal.png">
             <action name="Execute">
@@ -47,77 +39,88 @@
         <item label="Text Editor" icon="/usr/share/icons/openbox-menu/text-editor.png">
             <action name="Execute">
                 <command>
-                    vscodium
+                    code
                 </command>
             </action>
         </item>
+
+        <menu id="desktop-app-menu" label="Applications" icon="/usr/share/icons/openbox-menu/applications.png" execute="obamenu" />
 		
         <separator/>
-		<menu id="desktop-app-menu" label="Applications" icon="/usr/share/icons/openbox-menu/applications.png" execute="obamenu" />
 
 
         <menu id="preferences" label="Preferences" icon="/usr/share/icons/openbox-menu/settings.png">
         	<separator label="GRAPHICAL PREFERENCES"/>
-            <menu id="obConfig" label="Openbox">
-                <item label="Openbox Preferences">
+
+            <menu id="obConfig" label="Openbox">	
+                <item label="Edit Openbox config file rc.xml" icon="/usr/share/icons/openbox-menu/text-editor.png">
                     <action name="Execute">
                         <command>
-                            obconf
+                            code ~/.config/openbox/rc.xml
                         </command>
                     </action>
-                </item>				
-                <item label="Menu Editor">
+                </item>		
+                <item label="How to configure Openbox?" icon="/usr/share/icons/openbox-menu/help2.png">
+                    <action name="Execute">
+                        <command>
+                            brave "http://openbox.org/wiki/Help:Contents" "https://wiki.archlinux.org/index.php/openbox"
+                        </command>
+                    </action>
+                </item>	                
+                <separator/>
+                <item label="Reload Openbox configuration" icon="/usr/share/icons/openbox-menu/restart2.png">
+                    <action name="Reconfigure"/>
+                </item>
+                <item label="Restart Openbox" icon="/usr/share/icons/openbox-menu/restart.png">
+                    <action name="Restart"/>
+                </item>
+            </menu>
+
+        	<menu id="obmenu" label="Menu">
+                <item label="GUI Menu Editor" icon="/usr/share/icons/openbox-menu/menu.png">
                     <action name="Execute">
                         <command>
                             obmenu
                         </command>
                     </action>
-                </item>				
-                <item label="Edit rc.xml">
+                </item>	        		
+                <item label="Edit menu.xml" icon="/usr/share/icons/openbox-menu/text-editor.png">
                     <action name="Execute">
                         <command>
-                            vscodium ~/.config/openbox/rc.xml
+                            code ~/.config/openbox/menu.xml
                         </command>
                     </action>
                 </item>
-                <item label="Edit menu.xml">
+                <item label="How to configure menu.xml?" icon="/usr/share/icons/openbox-menu/help2.png">
                     <action name="Execute">
                         <command>
-                            vscodium ~/.config/openbox/menu.xml
+                            brave "http://openbox.org/wiki/Help:Menus" "https://wiki.archlinux.org/index.php/openbox#Menus"
                         </command>
                     </action>
-                </item>				
-                <item label="Edit autostart">
-                    <action name="Execute">
-                        <command>
-                            vscodium ~/.config/openbox/autostart
-                        </command>
-                    </action>
-                </item>
-                <separator/>
-                <item label="Reconfigure">
+                </item>	                 
+                <separator/>		        		
+                <item label="Reload Menu" icon="/usr/share/icons/openbox-menu/restart.png">
                     <action name="Reconfigure"/>
                 </item>
-                <item label="Restart">
-                    <action name="Restart"/>
-                </item>
-            </menu>
+        	</menu>
+
         	<menu id="compositor" label="Compositor">
-	            <item label="Edit Compositor Settings">
+	            <item label="Edit Compositor Settings" icon="/usr/share/icons/openbox-menu/text-editor.png">
         			<action name="Execute">
 	                    <command>
-	                        vscodium ~/.config/compton.conf
+	                        code ~/.config/compton.conf
 	                    </command>
 	                </action>
 	            </item>
-				<item label="Restart">
+	            <separator/>
+				<item label="Restart" icon="/usr/share/icons/openbox-menu/restart.png">
 					<action name="Execute">
 						<command>
 							bash -c 'killall compton; compton'
 						</command>
 					</action>
 				</item>						
-	            <item label="Stop">
+	            <item label="Stop" icon="/usr/share/icons/openbox-menu/stop.png">
 	                <action name="Execute">
 	                    <command>
 	                        killall compton
@@ -125,29 +128,38 @@
 	                </action>
                </item>		
 			</menu>			
+
         	<menu id="tint2" label="Tint2 Taskbar">
-	            <item label="Tint2 Config Tool">
+	            <item label="GUI Tint2 Config Tool" icon="/usr/share/icons/openbox-menu/tint2.png">
         			<action name="Execute">
 	                    <command>
 	                        tint2conf
 	                    </command>
 	                </action>
 	            </item>
-				<item label="Open Your Tints Folder">
+				<item label="Open Your Tints Folder" icon="/usr/share/icons/openbox-menu/file-manager.png">
         			<action name="Execute">
 	                    <command>
 	                        thunar ~/.config/tint2/
 	                    </command>
 	                </action>
 	            </item>
-	            <item label="Start/Restart">
+                <item label="How to configure Tint2?" icon="/usr/share/icons/openbox-menu/help2.png">
+                    <action name="Execute">
+                        <command>
+                            brave "https://gitlab.com/o9000/tint2/blob/master/doc/tint2.md"
+                        </command>
+                    </action>
+                </item>	 	            
+	            <separator/>
+	            <item label="Restart" icon="/usr/share/icons/openbox-menu/restart.png">
 	                <action name="Execute">
 	                    <command>
 	                        tint2-session
 	                    </command>
 	                </action>
                </item>
-	            <item label="Stop">
+	            <item label="Stop" icon="/usr/share/icons/openbox-menu/stop.png">
 	                <action name="Execute">
 	                    <command>
 	                        tint2-session stop
@@ -155,29 +167,84 @@
 	                </action>
                </item>				
         	</menu>
+
         	<menu id="conky" label="Conky Panels">
-        		<item label="Open Your Conkys Folder">
+        		<item label="Open Your Conkys Folder" icon="/usr/share/icons/openbox-menu/file-manager.png">
         			<action name="Execute">
 	                    <command>
 	                        thunar ~/.config/conky/
 	                    </command>
 	                </action>
 	            </item>
-	            <item label="Start/Restart">
+                <item label="How to configure Conky?" icon="/usr/share/icons/openbox-menu/help2.png">
+                    <action name="Execute">
+                        <command>
+                            brave "https://github.com/brndnmtthws/conky/wiki"
+                        </command>
+                    </action>
+                </item>	 	            
+               <separator/>
+	            <item label="Restart" icon="/usr/share/icons/openbox-menu/restart.png">
 	                <action name="Execute">
 	                    <command>
 	                        conky-session
 	                    </command>
 	                </action>
                </item>
-	            <item label="Stop">
+	            <item label="Stop" icon="/usr/share/icons/openbox-menu/stop.png">
 	                <action name="Execute">
 	                    <command>
 	                        conky-session stop
 	                    </command>
 	                </action>
                </item>				
-        	</menu>			
+        	</menu>	
+        	
+        	<menu id="autostart" label="Autostarted programs">		
+	            <item label="Show XDG autostarted programs" icon="/usr/share/icons/openbox-menu/terminal.png">
+	                <action name="Execute">
+	                    <command>
+	                        terminator -m -e bash -c "if [ -f "/usr/lib/x86_64-linux-gnu/openbox-xdg-autostart" ]; then /usr/lib/x86_64-linux-gnu/openbox-xdg-autostart --list; else /usr/lib/i386-linux-gnu/openbox-xdg-autostart --list; fi; read"
+	                    </command>
+	                </action>
+	            </item>        		
+	            <item label="Edit Openbox Autostart" icon="/usr/share/icons/openbox-menu/text-editor.png">
+	                <action name="Execute">
+	                    <command>
+	                        code ~/.config/openbox/autostart
+	                    </command>
+	                </action>
+	            </item>
+        	</menu>
+
+        	<menu id="shortcuts" label="Keyboard and mouse shortcuts">		   		
+	            <item label="Edit Openbox rc.xml" icon="/usr/share/icons/openbox-menu/text-editor.png">
+	                <action name="Execute">
+	                    <command>
+	                        code ~/.config/openbox/rc.xml
+	                    </command>
+	                </action>
+	            </item>
+                <item label="How to configure Openbox shortcuts?" icon="/usr/share/icons/openbox-menu/help2.png">
+                    <action name="Execute">
+                        <command>
+                            brave "http://openbox.org/wiki/Help:Bindings"
+                        </command>
+                    </action>
+                </item>	  	  
+                <separator/>		        		
+                <item label="Reload shortcuts" icon="/usr/share/icons/openbox-menu/restart.png">
+                    <action name="Reconfigure"/>
+                </item>                          
+        	</menu>
+
+            <item label="Openbox Preferences">
+                <action name="Execute">
+                    <command>
+                        obconf
+                    </command>
+                </action>
+            </item>		            
             <item label="GTK Appearance">
                 <action name="Execute">
                     <command>
@@ -188,7 +255,7 @@
             <item label="Font Configuration">
                 <action name="Execute">
                     <command>
-                        vscodium ~/.config/fontconfig/fonts.conf
+                        code ~/.config/fontconfig/fonts.conf
                     </command>
                 </action>
             </item>
@@ -221,6 +288,13 @@
                     </command>
                 </action>
             </item>
+			<item label="Check Pending Updates">
+				<action name="Execute">
+					<command>
+						terminator -m -e bash -c "update-notification -i; read"
+					</command>
+				</action>
+			</item>	            
             <item label="Power Management">
                 <action name="Execute">
                     <command>
@@ -256,13 +330,22 @@
 					</command>
 				</action>
 			</item>
+            <item label="Printers">
+                <action name="Execute">
+                    <command>
+                        cups-session
+                    </command>
+                </action>
+            </item>
         </menu>
 		
         <menu id="info" label="System info" icon="/usr/share/icons/openbox-menu/stats.png">
+            <separator label="SYSTEM INFO TOOLS" />
+
 			<item label="Memory Usage">
 				<action name="Execute">
 					<command>
-						terminator -m -e sudo bash -c "ps_mem.py; read"
+						terminator -m -e sudo bash -c 'tput civis; read -p "Text to resalt: " t; while true; do clear; out=$(ps_mem -S); outl=$(echo "$out" | wc -l); sl=$(tput lines); if [ "$sl" -lt "$outl" ]; then echo "$out" | sed -e "3,$((outl-sl+4))d"; else echo "$out"; fi; read -t 2; done | egrep --color=auto -i "^|$t"'
 					</command>
 				</action>
 			</item>
@@ -290,28 +373,19 @@
 			<item label="WIFI Scan Networks">
 				<action name="Execute">
 					<command>
-						terminator -m -e bash -c 'if [ "$(iw dev)" ]; then  while true; do nmcli dev wifi list; read; clear; done; else echo "No WIFI interfaces found!"; read; fi'
-					</command>
-				</action>
-			</item>	
-			<item label="Check Pending Updates">
-				<action name="Execute">
-					<command>
-						terminator -m -e bash -c "update-notification; update-notification -i"
+						terminator -m -e bash -c 'if [ "$(iw dev)" ]; then nmcli device wifi rescan; while true; do nmcli dev wifi list; read; clear; done; else echo "No WIFI interfaces found!"; read; fi'
 					</command>
 				</action>
 			</item>	
         </menu>
-	    
-        <menu id="help" label="Help" icon="/usr/share/icons/openbox-menu/help.png">		
-	        <item label="Shortcuts and mouse bindings">
-	            <action name="Execute">
-	                <command>
-	                    bash -c 'yad --button=gtk-ok --center --undecorated --fixed --borders=25 --title="Shortcuts and mouse bindings" --text="$(cat /usr/share/doc/openbox/help/shortcuts.txt)"'
-	                </command>
-	            </action>
-	        </item>
-        </menu>
+
+        <item label="Shortcuts keys" icon="/usr/share/icons/openbox-menu/shortcut.png">
+            <action name="Execute">
+                <command>
+                    yad --text-info --button="Close" --borders=20 --title="Shortcuts and mouse bindings" --width=700 --height=700 --fontname="Monospace" --filename="/usr/share/doc/openbox/help/shortcuts.txt"
+                </command>
+            </action>
+        </item>		
 		
         <separator/>
 

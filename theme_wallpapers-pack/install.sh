@@ -1,7 +1,11 @@
 #!/bin/bash
-# ACTION: Install nitrogen,  copy wallpapers pack and set default wallpaper to all users
+# ACTION: Install nitrogen tool, copy wallpapers pack and set default wallpaper to all users
 # INFO: Include beautiful set of solarized Linux wallpapers created by Andreas Linz (https://git.klingt.net/alinz/linux-pictures)
 # DEFAULT: y
+
+# Config variables
+base_dir="$(dirname "$(readlink -f "$0")")"
+wp_base="/usr/share/backgrounds/"
 
 # Check root
 [ "$(id -u)" -ne 0 ] && {
@@ -9,8 +13,9 @@
 	exit 1
 }
 
-base_dir="$(dirname "$(readlink -f "$0")")"
-wp_base="/usr/share/backgrounds/"
+# Copy wallpapers folderes
+[ ! -d "$wp_base" ] && mkdir -p "$wp_base"
+cp -rv "$base_dir/wallpapers"* "$wp_base"
 
 # Select default wallpaper
 [ -f "/etc/cron.daily/wallpaper-rotate" ] && /etc/cron.daily/wallpaper-rotate
@@ -27,25 +32,20 @@ if ! which nitrogen &>/dev/null; then
 	pacman -Sy --noconfirm nitrogen
 fi
 
-# Copy wallpapers folderes
-[ ! -d "$wp_base" ] && mkdir -p "$wp_base"
-cp -rv "$base_dir/wallpapers"* "$wp_base"
-
 for d in /etc/skel/ /home/*/; do
-	# Skip dirs in /home that not are user home
-	[ "$(dirname "$d")" = "/home" ] && ! id "$(basename "$d")" &>/dev/null && continue
+	[ "$(dirname "$d")" = "/home" ] && ! id "$(basename "$d")" &>/dev/null && continue # Skip dirs that no are homes
 
 	# Create config folders if no exists
 	d="$d/.config/"
-	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$d" -c %u:%g) "$d"
+	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d"
 	d="$d/nitrogen/"
-	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$d" -c %u:%g) "$d"
+	[ ! -d "$d" ] && mkdir -v "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d"
 
 	f="nitrogen.cfg"
-	[ ! -f "$d/$f" ] && cp "$base_dir/$f" "$d" && chown -R $(stat "$d" -c %u:%g) "$d/$f"
+	[ ! -f "$d/$f" ] && cp "$base_dir/$f" "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d/$f"
 	sed -i 's/^dirs *= *.*/dirs='$(echo "$wp_base" | sed 's/\//\\\//g')';/' "$d/$f"
 
 	f="bg-saved.cfg"
-	[ ! -f "$d/$f" ] && cp "$base_dir/$f" "$d" && chown -R $(stat "$d" -c %u:%g) "$d/$f"
+	[ ! -f "$d/$f" ] && cp "$base_dir/$f" "$d" && chown -R $(stat "$(dirname "$d")" -c %u:%g) "$d/$f"
 	sed -i 's/^file *= *.*/file='$(echo "$wp_base/$wp_dir/$wp_default" | sed 's/\//\\\//g')'/' "$d/$f"
 done

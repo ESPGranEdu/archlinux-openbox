@@ -28,13 +28,12 @@ icon_default="Numix-Paper"
 
 # Install bunsen paper icon theme
 tar -xzvf "$base_dir"/paper-bunsen-icon-theme.tgz -C /usr/share/icons/
+tar -xzvf "$base_dir"/numix-paper-icon-theme.tgz -C /usr/share/icons/
 
 if [ ! -d /usr/share/icons/Numix/ ]; then
 	echo "$(basename $0) ERROR: Numix theme is not installed"
 	exit 1
 fi
-
-tar -xzvf "$base_dir"/numix-paper-icon-theme.tgz -C /usr/share/icons/
 
 for d in /etc/skel/ /home/*/; do
 	# Skip dirs in /home that not are user home

@@ -258,7 +258,7 @@
     </keybind>
     <keybind key="A-Print">
       <action name="Execute">
-        <command>scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/ ; x-image-viewer ~/Pictures/screenshots/$f'</command>
+        <command>scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/ ; nomacs ~/Pictures/screenshots/$f'</command>
       </action>
     </keybind>
 
@@ -349,7 +349,7 @@
           <enabled>false</enabled>
           <name>Lock screen</name>
         </startupnotify>
-        <command>x-locker</command>
+        <command>physlock</command>
       </action>
     </keybind>
     <keybind key="W-e">
@@ -358,7 +358,7 @@
           <enabled>false</enabled>
           <name>Editor</name>
         </startupnotify>
-        <command>x-text-editor</command>
+        <command>code</command>
       </action>
     </keybind>
     <keybind key="W-h">
@@ -480,6 +480,11 @@
        switching due to hitting the edge of the screen -->
 
     <context name="Frame">
+    <!-- DEBIAN-OPENBOX-mouse-button-close-window -->  
+      <mousebind button="Button7" action="Press">
+      	<action name="Close"/>
+      </mousebind>
+		
       <mousebind button="A-Left" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>

@@ -1,54 +1,83 @@
 #!/bin/bash
 #===================================================================================
-# DEBIAN OPENBOX INSTALL SCRIPT
+# INSTALL SCRIPTS
 # FILE: install
-# DESCRIPTION: automatize Openbox installation in Debian
+# DESCRIPTION: automatize installation of set of scripts
 # AUTHOR: Leonardo Marco
 # VERSION: 1.0
 # CREATED: 2020.03.29
 # LICENSE: GNU General Public License v3.0
 #===================================================================================
 
+#=== GLOBAL CONFIG =================================================================
+shopt -s extglob                                                    # Activate extendend Bash expasions
+base_dir="$(dirname "$(readlink -f "$0")")"                         # Install script path
+echo "$PATH" | grep -q sbin || export PATH="/sbin/:/usr/sbin:$PATH" # PATH with sbin
+
+#=== GLOBAL VARIABLES ===============================================================
+unset actions_sel     # Array with selected actions expanded
+unset list            # Not empty if are in list mode (no exec actions)
+unset nscripts        # Num of sctrips loaded
+unset script_actions  # Array with actions descriptions
+unset script_infos    # Array with actions infos
+unset script_defaults # Array with actions defaults
+unset script_paths    # Array with actions paths
+
 #=== FUNCTION ======================================================================
 # NAME: help
 # DESCRIPTION: Show command help
 #===================================================================================
 function help() {
-	echo -e 'Exec scripts actions
-Usage: '$(basename $0)' [-l] [-a <actions>] [-y] [-d] [-h]
+	echo -e "Exec scripts actions
+Usage: "$(basename $0)" [-l] [-a <actions>] [-y] [-d] [-h]
    \e[1m-l\e[0m\t\tOnly list actions 
-   \e[1m-a <actions>\e[0m\tOnly do selected actions (e.g: -a 5,6,10-15)
+   \e[1m-a <actions>\e[0m\tFilter selected actions by number range or text pattern (comma separated)
    \e[1m-y\e[0m\t\tAuto-answer yes to all actions
    \e[1m-d\e[0m\t\tAuto-answer default to all actions
-   \e[1m-h\e[0m\t\tShow this help'
-	exit $1
+   \e[1m-h\e[0m\t\tShow this help
+
+ Samples:
+   \e[1minstall -l\e[0m\t\tList all actions
+   \e[1minstall -l -a grub\e[0m\tList all actions with grub text in description
+   \e[1minstall\e[0m\t\tExec all actions asking if install or not
+   \e[1minstall -a 1-5,12\e[0m\tOnly exec actions 1 to 5 and 12
+   \e[1minstall -a grub\e[0m\tOnly exec actions with grub text in description
+   \e[1minstall -d\e[0m\t\tExec all actions with Y has default answer (no ask)
+   \e[1minstall -y\e[0m\t\tExec all actions (no ask)"
 }
 
 #=== FUNCTION ======================================================================
 # NAME: ask_action
-# DESCRIPTION: ask for a action and determine if do it or not do
+# DESCRIPTION: show action info and asks if install it or not
+# PARAMS
+#	$1	naction
+#
+# GLOBAL VARIABLES READED
+#	list
+#	script_actions[]
+#	script_infos[]
+#	script_defaults[]
+#
 # EXIT CODE:
 #	0-> do the action
 #	1-> dont do de action
 #===================================================================================
-n=0
 function ask_action() {
-	action="$1"
-	info="$2"
-	default="${3,,}"
+	local naction="$1"
+	local action="${script_actions[$naction]}"
+	local info="${script_infos[$naction]}"
+	local default="${script_defaults[$naction],,}"
 	default="${default:0:1}"
 	[ "$default" != "n" ] && default="y"
-	n=$((n + 1))
 
-	# Skip action if not in -a
-	[ "$actions" ] && { echo "$actions" | grep -w "$n" &>/dev/null || return 1; }
-
-	[ "$list" ] && echo -e "[$n] $action ($default)" && return 1
+	# List mode -> only show header and return 1
+	[ "$list" ] && echo -e " [$naction] $action ($default)" && return 1
 
 	# Show action
 	[ "${default,,}" = "y" ] && q="(Y/n)?" || q="(y/N))?"
-	echo -en "\n\e[33m${info}\n\e[39m\e[1m[$n] \e[4m${action}\e[0m $q "
+	echo -en "\e[33m${info}\n\e[39m\e[1m[$naction] \e[4m${action}\e[0m $q "
 
+	# Ask if install
 	case "$yes" in
 	allyes)
 		q="y"
@@ -65,80 +94,201 @@ function ask_action() {
 		;;
 	esac
 
+	# Exit code
 	[ "$q" != "n" ] && [ "$q" != "y" ] && q="$default"
 	[ "${q,,}" != "n" ] && return 0
 	return 1
 }
 
-#=== PARAMS ========================================================================
-while getopts ":hlyda:" o; do
-	case "$o" in
-	h) help ;;
-	l) list="true" ;;
-	y) yes="allyes" ;;
-	d) yes="default" ;;
-	a)
-		for a in $(echo "$OPTARG" | tr "," " "); do
+#=== FUNCTION ======================================================================
+# NAME: expand_actions
+# DESCRIPTION: get action unexpanded and expand it and save in actions array
+#	1-10,12 -> actions=1 2 3 4 5 6 7 8 9 10 12
+#   all 	-> actions=1 2 3 4 5 6 ... n
+#   bash 	-> actions=3 4 5 (all actions with bash in description)
+#
+# PARAMS
+#	$1	actions unexpanded
+#
+# GLOBAL VARIABLES WRITED
+#	actions_sel[]
+#===================================================================================
+function expand_actions() {
+	local actions="$1"
+	unset actions_sel # Global actions selected
+
+	if [ ! "${actions,,}" ]; then
+		actions_sel=$(seq -s" " 1 "$nscripts")
+	else
+		local IFS=$'\n\t '
+		for a in $(echo "$actions" | tr "," " "); do
+			# Is text
+			if echo "$a" | grep "[a-zA-Z]" &>/dev/null; then
+				actions_sel="${actions_sel} $(search_scripts "$a")"
 			# Is a range
-			echo "$a" | grep -E "[0-9]"*-"[0-9]" &>/dev/null && actions="$actions $(eval echo {$(echo $a | sed "s/-/../")})"
+			elif echo "$a" | grep -E "[0-9]"*-"[0-9]" &>/dev/null; then
+				actions_sel="${actions_sel} $(eval echo {$(echo $a | sed "s/-/../")})"
 			# Is a number
-			[ "$a" -eq 0 ] &>/dev/null
-			[ $? -le 1 ] && actions="$actions $a"
+			elif
+				[ "$a" -eq 0 ] &>/dev/null
+				[ $? -le 1 ]
+			then
+				actions_sel="${actions_sel} $a"
+			fi
 		done
-		;;
-	*) echo "$(basename "$0"): Invalid flag -- '-$OPTARG'" && help 1 ;;
-	esac
-done
-
-#=== CHECKS =======================================================================
-[ ! "$list" ] && [ "$(id -u)" -ne 0 ] && echo "Administrative privileges needed" && exit 1
-if ! cat /etc/*release | grep -Ei "arch|reborn|endeavour" &>/dev/null; then
-	echo "Seems you are not running Arch Linux distro"
-	echo "Some actions may fail. Cross your fingers and press enter..."
-	read -s # Dont display keys
-fi
-
-#=== EXEC-ACTIONS ==================================================================
-# Some packages come from Arch User Repos, and makepkg can not install as root
-# so we let temporarily root permissions to "nobody" user to be able to compile
-# the pkgs from AUR
-[ "$list" ] || echo "nobody ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers
-
-base_dir="$(dirname "$(readlink -f "$0")")"
-echo "$PATH" | grep -q sbin || export PATH="/sbin/:/usr/sbin:$PATH"
-n=0
-
-# For each .sh file
-IFS=$'\n\t'
-shopt -s extglob
-for script in \
-	"$base_dir"/install_*/install.sh \
-	"$base_dir"/config_*/install.sh \
-	"$base_dir"/script_*/install.sh \
-	"$base_dir"/theme_*/install.sh; do
-	head="$(head -10 "$script")"
-	# Get ACTION field:
-	action="$(echo "$head" | grep "#[[:blank:]]*ACTION:" | sed 's/#[[:blank:]]*ACTION:[[:blank:]]*//')"
-	[ ! "$action" ] && continue
-	# Get INFO field:
-	info="$(echo "$head" | grep "#[[:blank:]]*INFO:" | sed 's/#[[:blank:]]*INFO:[[:blank:]]*//')"
-	# Get DEFAULT field:
-	default="$(echo "$head" | grep "#[[:blank:]]*DEFAULT:" | sed 's/#[[:blank:]]*DEFAULT:[[:blank:]]*//')"
-
-	if ask_action "$action" "$info" "$default"; then
-		bash "$script" # EXEC SCRIPT
 	fi
-done
 
-[ "$list" ] || sed -i '/nobody/d' /etc/sudoers # Delete nobody from sudoers
+	# Convert actions_sel in array and discard invalid action numbers
+	local IFS=" "
+	for a in $actions_sel; do
+		[ "$a" -ge 1 ] && [ "$a" -le "$nscripts" ] && actions_sel[$a]="true"
+	done
+	unset actions_sel[0]
+}
 
-# Fix permission problem
-for d in /home/*/; do
-	chown -vR "$(stat "$d" -c %u:%g)" "$d/.config"
-	chown -vR "$(stat "$d" -c %u:%g)" "$d"/.bash*
-done
+#=== FUNCTION ======================================================================
+# NAME: search_scripts
+# DESCRIPTION: search all script number with supplied text in their description
+#
+# PARAMS
+#	$1	text to search
+#
+# GLOBAL VARIABLES READED
+#	script_actions[]
+#===================================================================================
+function search_scripts() {
+	local text="$1"
+	[ ! "$text" ] && return
+	local naction
+	local IFS=$'\n\t'
+	for naction in ${!script_actions[*]}; do
+		echo "${script_actions[$naction]}" | grep -qi "$text" && echo -n "$naction "
+	done
+}
 
-if [ ! "$list" ] && [ ! "$actions" ] && ask_action "Reboot" "" "y"; then
-	reboot
-fi
-echo
+#=== FUNCTION ======================================================================
+# NAME: load_scripts
+# DESCRIPTION: load al install.sh scripts founded and populate scripts_XXX arrays
+#
+# GLOBAL VARIABLES WRITED
+#	script_paths[]
+#	script_actions[]
+# 	script_infos[]
+#	script_defaults[]
+#	nscripts
+#===================================================================================
+function load_scripts() {
+	local IFS=$'\n\t'
+	local scripts_paths="$(ls "$base_dir"/install_*/install.sh 2>/dev/null)
+$(ls "$base_dir"/config_*/install.sh 2>/dev/null)
+$(ls "$base_dir"/script_*/install.sh 2>/dev/null)
+$(ls "$base_dir"/theme_*/install.sh 2>/dev/null)
+$(ls "$base_dir"/!(install_*|script_*|config_*|theme_*)/install.sh 2>/dev/null)"
+	local naction=1
+
+	for script in $scripts_paths; do
+		local head="$(head -10 "$script")"
+		# Get ACTION field:
+		local action="$(echo "$head" | grep "#[[:blank:]]*ACTION:" | sed 's/#[[:blank:]]*ACTION:[[:blank:]]*//')"
+		[ ! "$action" ] && continue
+		# Get INFO field:
+		local info="$(echo "$head" | grep "#[[:blank:]]*INFO:" | sed 's/#[[:blank:]]*INFO:[[:blank:]]*//')"
+		# Get DEFAULTfield:
+		local default="$(echo "$head" | grep "#[[:blank:]]*DEFAULT:" | sed 's/#[[:blank:]]*DEFAULT:[[:blank:]]*//')"
+
+		script_paths[$naction]="$script"
+		script_actions[$naction]="$action"
+		script_infos[$naction]="$info"
+		script_defaults[$naction]="$default"
+
+		naction=$((naction + 1))
+	done
+
+	nscripts=${#script_paths[*]}
+}
+
+#=== FUNCTION ======================================================================
+# NAME: check_os_version
+# DESCRIPTION: check if current OS distro is compatible with this install script
+#
+# EXIT CODE
+#	0	IS compatible
+#	1	IS NOT compamtible
+#===================================================================================
+function check_os_version() {
+	cat /etc/*release | grep -Ei "arch|endeavour|reborn|manjaro" &>/dev/null || return 1
+	return 0
+}
+
+#=== FUNCTION ======================================================================
+# NAME: error_info
+# DESCRIPTION: echo error message and exit if exit code is supplied
+#
+# PARAMS
+#	$1		Message to show
+#	[$2]	Exit code
+#===================================================================================
+function error_info() {
+	local msg="$1"
+	local code="$2"
+	echo -e "$msg" 1 &>2
+	[ "$code" ] && [ "$code" -ne 0 ] &>/dev/null && exit $code
+}
+
+#=== FUNCTION ======================================================================
+# NAME: main
+# DESCRIPTION: install start point
+#===================================================================================
+function main() {
+	# READ PARAMS
+	while getopts ":hlyda:" o; do
+		case "$o" in
+		h) help="true" ;;
+		l) list="true" ;;
+		y) yes="allyes" ;;
+		d) yes="default" ;;
+		a) actions="$OPTARG" ;;
+		esac
+	done
+
+	# HELP MODE
+	if [ "$help" ]; then
+		help
+		exit 0
+	fi
+
+	# CHECKS
+	if [ ! "$list" ]; then
+		# Check root privileges
+		[ "$(id -u)" -ne 0 ] && error_info "Administrative privileges needed" 1
+
+		# Check debian version
+		if ! check_os_version; then
+			echo "Seems you are not running an Arch based distro distro"
+			echo "Some actions may fail. Cross your fingers and press enter..."
+			read
+		fi
+	fi
+
+	# LOAD SCRIPTS
+	load_scripts
+	[ "$nscripts" -eq 0 ] && error_info "No scripts found in ${base_dir}!" 1
+
+	# EXPAND ACTIONS
+	expand_actions "$actions"
+	[ ${#actions_sel[*]} -eq 0 ] && error_info "No actions to exec!" 1
+
+	# EXEC SCRIPTS
+	! [ "$list" ] && echo "nobody ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers
+
+	for naction in ${!actions_sel[*]}; do
+		local path="${script_paths[$naction]}"
+		# Ask action and exec it
+		ask_action $naction && bash "$path"
+	done
+
+	! [ "$list" ] && sed -i "/nobody/d" /etc/sudoers
+
+}
+
+main "$@"

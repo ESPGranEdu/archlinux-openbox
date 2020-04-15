@@ -29,7 +29,7 @@ function update() {
 	echo "Updating package repositoriy..."
 	pacman -Syy &>/dev/null
 	echo "Checking updates and saving in $updates_file..."
-	(pacman -Qqu && trizen -Qqua) >"$updates_file" || exit 1
+	(pacman -Qu && trizen -Qua) >"$updates_file" || exit 1
 	echo
 	exit 0
 }
@@ -72,7 +72,7 @@ function interactive_upgrade() {
 # DESCRIPTION: shot text for display in systray
 #===============================================================================
 function tint2_executor_msg() {
-	[ -s "$updates_file" ] && echo $(wc "$updates_file" -l)" UPDATES  //"
+	[ -s "$updates_file" ] && echo $(wc "$updates_file" -l | cut -f1 -d" ")" UPDATES  //"
 	exit 0
 }
 
