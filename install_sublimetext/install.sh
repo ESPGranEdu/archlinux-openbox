@@ -14,3 +14,6 @@
 	cd sublime-text-nightly
 	sudo -u nobody makepkg -sirc --noconfirm
 )
+
+# Cleanup
+rm -rf /tmp/sublime-text-nightly

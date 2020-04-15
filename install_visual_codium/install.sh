@@ -15,3 +15,6 @@
     cd /tmp/vscodium-bin
     sudo -u nobody makepkg -sirc --noconfirm
 )
+
+# Cleanup
+rm -rf /tmp/vscodium-bin

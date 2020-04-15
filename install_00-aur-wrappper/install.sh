@@ -17,3 +17,6 @@ sudo -u nobody git clone https://aur.archlinux.org/trizen /tmp/trizen
     cd /tmp/trizen
     sudo -u nobody makepkg -sirc --noconfirm
 )
+
+# Cleanup
+rm -rf /tmp/trizen

@@ -17,6 +17,9 @@ pacman -Sy --noconfirm pavucontrol
 	sudo -u nobody makepkg -sirc --noconfirm
 )
 
+# Cleanup
+rm -rf /tmp/pnmixer
+
 # pnmixer config icon
 for d in /etc/skel /home/*/; do
 	# Skip dirs in /home that not are user home

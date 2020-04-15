@@ -18,7 +18,7 @@ x-scheme-handler/unknown=google-chrome.desktop"
 
 # Install Google Chrome
 (
-	sudo -u nobody git clone https://aur.archlinux.org/google-chrome
+	sudo -u nobody git clone https://aur.archlinux.org/google-chrome /tmp/google-chrome
 	cd /tmp/google-chrome
 	cd google-chrome && sudo -u nobody makepkg -sirc --noconfirm
 )
@@ -28,3 +28,6 @@ for d in /etc/skel /home/*/; do
 	d="$d/.config"
 	[ ! -d "$d/.config" ] && mkdir -v "$d/.config" && echo "$xdg_template" >"$d/mimeapp.list" && chown -R $(stat "$d" -c %u:%g) "$d"
 done
+
+# Cleanup
+rm -rf /tmp/google-chrome

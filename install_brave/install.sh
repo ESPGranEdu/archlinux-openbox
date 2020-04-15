@@ -28,3 +28,6 @@ for d in /etc/skel /home/*/; do
 	d="$d/.config"
 	[ ! -d "$d/.config" ] && mkdir -v "$d/.config" && echo "$xdg_template" >"$d/mimeapp.list" && chown -R $(stat "$d" -c %u:%g) "$d"
 done
+
+# Cleanup
+rm -rf /tmp/brave-bin

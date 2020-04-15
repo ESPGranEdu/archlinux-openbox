@@ -12,7 +12,7 @@
 base_dir="$(dirname "$(readlink -f "$0")")"
 icon_default="Numix-Paper"
 
-# INSTALL NUMIX & PAPER ICON PACAKGES
+# Install numix icon theme
 (
 	sudo -u nobody git clone https://aur.archlinux.org/numix-icon-theme-git /tmp/numix-icon-theme-git
 	cd /tmp/numix-icon-theme-git
@@ -25,6 +25,9 @@ icon_default="Numix-Paper"
 	cd /tmp/paper-icon-theme
 	sudo -u nobody makepkg -sirc --noconfirm
 )
+
+# Cleanup
+rm -rf /tmp/paper-icon-theme /tmp/numix-icon-theme-git
 
 # Install bunsen paper icon theme
 tar -xzvf "$base_dir"/paper-bunsen-icon-theme.tgz -C /usr/share/icons/

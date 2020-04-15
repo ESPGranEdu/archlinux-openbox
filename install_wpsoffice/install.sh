@@ -15,4 +15,7 @@
 	sudo -u nobody makepkg -sirc --noconfirm
 )
 
+# Cleanup
+rm -rf /tmp/wps-office
+
 echo -e "[\e[93mWarning\e[0m] You should install a proper dictionary for better experience"
