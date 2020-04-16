@@ -19,18 +19,15 @@ icon_default="Numix-Paper"
 	sudo -u nobody makepkg -sirc --noconfirm
 )
 
-# Cleanup
-rm -rf /tmp/numix-icon-theme-git
-
 # Install paper icon theme
 (
-	sudo -u nobody git clone https//aur.archlinux.org/paper-icon-theme /tmp/paper-icon-theme
+	sudo -u nobody git clone https://aur.archlinux.org/paper-icon-theme /tmp/paper-icon-theme
 	cd /tmp/paper-icon-theme
 	sudo -u nobody makepkg -sirc --noconfirm
 )
 
 # Cleanup
-rm -rf /tmp/paper-icon-theme
+rm -rf /tmp/{paper-icon-theme,numix-icon-theme-git}
 
 # Install bunsen paper icon theme
 tar -xzvf "$base_dir"/paper-bunsen-icon-theme.tgz -C /usr/share/icons/
