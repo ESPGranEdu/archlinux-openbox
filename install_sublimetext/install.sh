@@ -1,6 +1,6 @@
 #!/bin/bash
 # ACTION: Install Sublime Text
-# DEFAULT: y
+# DEFAULT: n
 
 # Check root
 [ "$(id -u)" -ne 0 ] && {

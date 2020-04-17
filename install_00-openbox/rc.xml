@@ -322,7 +322,7 @@
           <enabled>false</enabled>
           <name>File Manager</name>
         </startupnotify>
-        <command>x-file-manager</command>
+        <command>thunar</command>
       </action>
     </keybind>
     <keybind key="W-t">
@@ -340,7 +340,7 @@
           <enabled>true</enabled>
           <name>Web Browser</name>
         </startupnotify>
-        <command>x-www-browser</command>
+        <command>brave</command>
       </action>
     </keybind>
     <keybind key="W-l">
@@ -480,7 +480,7 @@
        switching due to hitting the edge of the screen -->
 
     <context name="Frame">
-    <!-- DEBIAN-OPENBOX-mouse-button-close-window -->  
+    <!-- ARCHLINUX-OPENBOX-mouse-button-close-window -->  
       <mousebind button="Button7" action="Press">
       	<action name="Close"/>
       </mousebind>

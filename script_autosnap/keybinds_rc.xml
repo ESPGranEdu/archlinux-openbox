@@ -1,174 +1,174 @@
-    <keybind key="W-KP_0">                  <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="ToggleAlwaysOnTop"/>    <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-0">                   	<!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="ToggleAlwaysOnTop"/>    <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-KP_Add">                <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="Maximize"/>             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-KP_Subtract">           <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="UnmaximizeFull"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-KP_Home">               <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="UnmaximizeFull"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="MoveResizeTo">          <!-- #DEBIAN-OPENBOX-autosnap -->
-        <x>0</x>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <y>0</y>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <width>50%</width>                  <!-- #DEBIAN-OPENBOX-autosnap -->
-        <height>50%</height>                <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-7">                     <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="UnmaximizeFull"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="MoveResizeTo">          <!-- #DEBIAN-OPENBOX-autosnap -->
-        <x>0</x>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <y>0</y>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <width>50%</width>                  <!-- #DEBIAN-OPENBOX-autosnap -->
-        <height>50%</height>                <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-KP_Up">                 <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="UnmaximizeFull"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="MoveResizeTo">          <!-- #DEBIAN-OPENBOX-autosnap -->
-        <x>0</x>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <y>0</y>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <width>100%</width>                 <!-- #DEBIAN-OPENBOX-autosnap -->
-        <height>50%</height>                <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-8">                     <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="UnmaximizeFull"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="MoveResizeTo">          <!-- #DEBIAN-OPENBOX-autosnap -->
-        <x>0</x>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <y>0</y>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <width>100%</width>                 <!-- #DEBIAN-OPENBOX-autosnap -->
-        <height>50%</height>                <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-KP_Prior">              <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="UnmaximizeFull"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="MoveResizeTo">          <!-- #DEBIAN-OPENBOX-autosnap -->
-        <x>-0</x>                           <!-- #DEBIAN-OPENBOX-autosnap -->
-        <y>0</y>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <width>50%</width>                  <!-- #DEBIAN-OPENBOX-autosnap -->
-        <height>50%</height>                <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-9">                     <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="UnmaximizeFull"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="MoveResizeTo">          <!-- #DEBIAN-OPENBOX-autosnap -->
-        <x>-0</x>                           <!-- #DEBIAN-OPENBOX-autosnap -->
-        <y>0</y>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <width>50%</width>                  <!-- #DEBIAN-OPENBOX-autosnap -->
-        <height>50%</height>                <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-KP_Begin">              <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="ToggleMaximize"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-5">                     <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="ToggleMaximize"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-KP_Left">               <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="UnmaximizeFull"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="MoveResizeTo">          <!-- #DEBIAN-OPENBOX-autosnap -->
-        <x>0</x>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <y>0</y>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <width>50%</width>                  <!-- #DEBIAN-OPENBOX-autosnap -->
-        <height>100%</height>               <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-4">                     <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="UnmaximizeFull"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="MoveResizeTo">          <!-- #DEBIAN-OPENBOX-autosnap -->
-        <x>0</x>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <y>0</y>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <width>50%</width>                  <!-- #DEBIAN-OPENBOX-autosnap -->
-        <height>100%</height>               <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-KP_Right">              <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="UnmaximizeFull"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="MoveResizeTo">          <!-- #DEBIAN-OPENBOX-autosnap -->
-        <x>-0</x>                           <!-- #DEBIAN-OPENBOX-autosnap -->
-        <y>0</y>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <width>50%</width>                  <!-- #DEBIAN-OPENBOX-autosnap -->
-        <height>100%</height>               <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-6">                     <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="UnmaximizeFull"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="MoveResizeTo">          <!-- #DEBIAN-OPENBOX-autosnap -->
-        <x>-0</x>                           <!-- #DEBIAN-OPENBOX-autosnap -->
-        <y>0</y>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <width>50%</width>                  <!-- #DEBIAN-OPENBOX-autosnap -->
-        <height>100%</height>               <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-KP_End">                <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="UnmaximizeFull"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="MoveResizeTo">          <!-- #DEBIAN-OPENBOX-autosnap -->
-        <x>0</x>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <y>-0</y>                           <!-- #DEBIAN-OPENBOX-autosnap -->
-        <width>50%</width>                  <!-- #DEBIAN-OPENBOX-autosnap -->
-        <height>50%</height>                <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-1">                     <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="UnmaximizeFull"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="MoveResizeTo">          <!-- #DEBIAN-OPENBOX-autosnap -->
-        <x>0</x>                            <!-- #DEBIAN-OPENBOX-autosnap -->
-        <y>-0</y>                           <!-- #DEBIAN-OPENBOX-autosnap -->
-        <width>50%</width>                  <!-- #DEBIAN-OPENBOX-autosnap -->
-        <height>50%</height>                <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-KP_Down">               <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="UnmaximizeFull"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="MoveResizeTo">          <!-- #DEBIAN-OPENBOX-autosnap -->
-        <x>-0</x>                           <!-- #DEBIAN-OPENBOX-autosnap -->
-        <y>-0</y>                           <!-- #DEBIAN-OPENBOX-autosnap -->
-        <width>100%</width>                 <!-- #DEBIAN-OPENBOX-autosnap -->
-        <height>50%</height>                <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-2">                     <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="UnmaximizeFull"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="MoveResizeTo">          <!-- #DEBIAN-OPENBOX-autosnap -->
-        <x>-0</x>                           <!-- #DEBIAN-OPENBOX-autosnap -->
-        <y>-0</y>                           <!-- #DEBIAN-OPENBOX-autosnap -->
-        <width>100%</width>                 <!-- #DEBIAN-OPENBOX-autosnap -->
-        <height>50%</height>                <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-KP_Next">               <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="UnmaximizeFull"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="MoveResizeTo">          <!-- #DEBIAN-OPENBOX-autosnap -->
-      	<x>-0</x>                           <!-- #DEBIAN-OPENBOX-autosnap -->
-      	<y>-0</y>                           <!-- #DEBIAN-OPENBOX-autosnap -->
-      	<width>50%</width>                  <!-- #DEBIAN-OPENBOX-autosnap -->
-      	<height>50%</height>                <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="W-3">                     <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="UnmaximizeFull"/>       <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="MoveResizeTo">          <!-- #DEBIAN-OPENBOX-autosnap -->
-        <x>-0</x>                           <!-- #DEBIAN-OPENBOX-autosnap -->
-        <y>-0</y>                           <!-- #DEBIAN-OPENBOX-autosnap -->
-        <width>50%</width>                  <!-- #DEBIAN-OPENBOX-autosnap -->
-        <height>50%</height>                <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="C-A-Left">                <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="GoToDesktop">           <!-- #DEBIAN-OPENBOX-autosnap -->
-        <to>left</to>                       <!-- #DEBIAN-OPENBOX-autosnap -->
-        <wrap>no</wrap>                     <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-     </keybind>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    <keybind key="C-A-Right">               <!-- #DEBIAN-OPENBOX-autosnap -->
-      <action name="GoToDesktop">           <!-- #DEBIAN-OPENBOX-autosnap -->
-        <to>right</to>                      <!-- #DEBIAN-OPENBOX-autosnap -->
-        <wrap>no</wrap>                     <!-- #DEBIAN-OPENBOX-autosnap -->
-      </action>                             <!-- #DEBIAN-OPENBOX-autosnap -->
-    </keybind>                              <!-- #DEBIAN-OPENBOX-autosnap -->
+    <keybind key="W-KP_0">                  <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="ToggleAlwaysOnTop"/>    <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-0">                   	<!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="ToggleAlwaysOnTop"/>    <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-KP_Add">                <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="Maximize"/>             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-KP_Subtract">           <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="UnmaximizeFull"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-KP_Home">               <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="UnmaximizeFull"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="MoveResizeTo">          <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <x>0</x>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <y>0</y>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <width>50%</width>                  <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <height>50%</height>                <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-7">                     <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="UnmaximizeFull"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="MoveResizeTo">          <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <x>0</x>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <y>0</y>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <width>50%</width>                  <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <height>50%</height>                <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-KP_Up">                 <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="UnmaximizeFull"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="MoveResizeTo">          <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <x>0</x>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <y>0</y>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <width>100%</width>                 <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <height>50%</height>                <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-8">                     <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="UnmaximizeFull"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="MoveResizeTo">          <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <x>0</x>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <y>0</y>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <width>100%</width>                 <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <height>50%</height>                <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-KP_Prior">              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="UnmaximizeFull"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="MoveResizeTo">          <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <x>-0</x>                           <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <y>0</y>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <width>50%</width>                  <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <height>50%</height>                <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-9">                     <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="UnmaximizeFull"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="MoveResizeTo">          <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <x>-0</x>                           <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <y>0</y>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <width>50%</width>                  <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <height>50%</height>                <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-KP_Begin">              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="ToggleMaximize"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-5">                     <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="ToggleMaximize"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-KP_Left">               <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="UnmaximizeFull"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="MoveResizeTo">          <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <x>0</x>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <y>0</y>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <width>50%</width>                  <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <height>100%</height>               <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-4">                     <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="UnmaximizeFull"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="MoveResizeTo">          <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <x>0</x>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <y>0</y>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <width>50%</width>                  <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <height>100%</height>               <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-KP_Right">              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="UnmaximizeFull"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="MoveResizeTo">          <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <x>-0</x>                           <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <y>0</y>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <width>50%</width>                  <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <height>100%</height>               <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-6">                     <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="UnmaximizeFull"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="MoveResizeTo">          <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <x>-0</x>                           <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <y>0</y>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <width>50%</width>                  <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <height>100%</height>               <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-KP_End">                <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="UnmaximizeFull"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="MoveResizeTo">          <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <x>0</x>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <y>-0</y>                           <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <width>50%</width>                  <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <height>50%</height>                <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-1">                     <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="UnmaximizeFull"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="MoveResizeTo">          <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <x>0</x>                            <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <y>-0</y>                           <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <width>50%</width>                  <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <height>50%</height>                <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-KP_Down">               <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="UnmaximizeFull"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="MoveResizeTo">          <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <x>-0</x>                           <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <y>-0</y>                           <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <width>100%</width>                 <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <height>50%</height>                <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-2">                     <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="UnmaximizeFull"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="MoveResizeTo">          <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <x>-0</x>                           <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <y>-0</y>                           <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <width>100%</width>                 <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <height>50%</height>                <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-KP_Next">               <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="UnmaximizeFull"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="MoveResizeTo">          <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      	<x>-0</x>                           <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      	<y>-0</y>                           <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      	<width>50%</width>                  <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      	<height>50%</height>                <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="W-3">                     <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="UnmaximizeFull"/>       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="MoveResizeTo">          <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <x>-0</x>                           <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <y>-0</y>                           <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <width>50%</width>                  <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <height>50%</height>                <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="C-A-Left">                <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="GoToDesktop">           <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <to>left</to>                       <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <wrap>no</wrap>                     <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+     </keybind>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    <keybind key="C-A-Right">               <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      <action name="GoToDesktop">           <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <to>right</to>                      <!-- #ARCHLINUX-OPENBOX-autosnap -->
+        <wrap>no</wrap>                     <!-- #ARCHLINUX-OPENBOX-autosnap -->
+      </action>                             <!-- #ARCHLINUX-OPENBOX-autosnap -->
+    </keybind>                              <!-- #ARCHLINUX-OPENBOX-autosnap -->

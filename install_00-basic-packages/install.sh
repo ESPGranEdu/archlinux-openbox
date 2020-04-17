@@ -10,10 +10,11 @@
 }
 
 # Install free packages
-pacman -Syy --noconfirm vim vlc zip unzip gmtp mtpfs mailutils traceroute acl gnupg yad mlocate evince wget cronie xdg-utils xdg-user-dirs man rsync
+pacman -Syy --noconfirm vim vlc zip unzip gmtp mtpfs mailutils traceroute acl gnupg yad mlocate evince wget cronie xdg-utils xdg-user-dirs man rsync network-manager-applet tlp
 
-# Enable cronie
+# Enable services
 systemctl enable --now cronie
+systemctl enable --now tlp
 
 # Update man database and set cronjob to update periodically
 echo -e "#!/bin/sh\nmandb" >/etc/cron.daily/mandb_update

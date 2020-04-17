@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script for open CUPS webpage and install it if not installed
-# If cups is running open x-www-browser in https://localhost:631
+# If cups is running open the default browser in https://localhost:631
 # If cups is not installed installl cups and open browser
 
 # NO CUPS INSTALLED

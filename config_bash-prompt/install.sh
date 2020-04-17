@@ -9,7 +9,7 @@
 }
 
 base_dir="$(dirname "$(readlink -f "$0")")"
-comment_mark="#DEBIAN-OPENBOX"
+comment_mark="#ARCHLINUX-OPENBOX"
 
 for d in /home/* /etc/skel/ /root; do
 	# Skip dirs in /home that not are user home
