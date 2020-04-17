@@ -10,7 +10,7 @@
 }
 
 # Install free packages
-pacman -Syy --noconfirm vim vlc zip unzip gmtp mtpfs mailutils traceroute acl gnupg yad mlocate evince wget cronie xdg-utils xdg-user-dirs man rsync network-manager-applet tlp
+pacman -Syy --noconfirm vim vlc zip unzip gmtp mtpfs mailutils traceroute acl gnupg yad mlocate evince wget cronie xdg-utils xdg-user-dirs man rsync network-manager-applet tlp pulseaudio pulseaudio-alsa alsa-lib alsa-utils alsa
 
 # Enable services
 systemctl enable --now cronie
