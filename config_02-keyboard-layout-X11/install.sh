@@ -7,6 +7,9 @@
     echo "Must run as root"
     exit 1
 }
+# Install dependencies
+pacman -Sy --noconfirm jq
+
 # Declare countries with his layout
 declare -A layouts
 layouts[USA]="us"
